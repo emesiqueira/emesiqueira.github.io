@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Currículo — Emerson Siqueira</title>
+<meta name="description" content="Currículo de Emerson Siqueira — UX/UI e Product Designer em Belo Horizonte. Educação, saúde e produtos digitais." />
+<meta name="theme-color" content="#141318" />
+<meta name="robots" content="noindex" />
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+h1,h2,h3,h4{font-weight:inherit}
+doc-page:not(:defined){visibility:hidden}
+:root{--ink:#16130f;--ink-soft:#3d372e;--ink-mute:#6b6055;--line:rgba(0,0,0,.16);--line-soft:rgba(0,0,0,.08);--accent:#1f7a4d;--accent-2:#5c449e;--display:'Space Grotesk',system-ui,sans-serif;--sans:'Manrope',system-ui,sans-serif;--label:'Space Grotesk',system-ui,sans-serif}
+/* barra de tela — não existe no papel */
+.cv-top{position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;gap:18px;padding:14px 22px;background:#141318;border-bottom:1px solid rgba(236,228,214,.1)}
+.cv-top .brand{font-family:var(--display);font-weight:700;font-size:15px;letter-spacing:-.01em;color:#ECE4D6;text-decoration:none}
+.cv-top-actions{display:flex;align-items:center;gap:10px}
+.cv-btn{display:inline-flex;align-items:center;font-family:var(--display);font-weight:600;font-size:14px;letter-spacing:.01em;padding:13px 22px;border:0;cursor:pointer;text-decoration:none;--px:4px;clip-path:polygon(var(--px) 0,calc(100% - var(--px)) 0,calc(100% - var(--px)) var(--px),100% var(--px),100% calc(100% - var(--px)),calc(100% - var(--px)) calc(100% - var(--px)),calc(100% - var(--px)) 100%,var(--px) 100%,var(--px) calc(100% - var(--px)),0 calc(100% - var(--px)),0 var(--px),var(--px) var(--px))}
+.cv-btn-ghost{background:transparent;color:#ECE4D6;border:1.5px solid rgba(236,228,214,.18)}
+.cv-btn-mint{background:#7EE0A0;color:#11231a}
+body.embed .cv-top{display:none}
+a{color:var(--accent);text-decoration:none}
+a:hover{color:#155c39}
+
+/* ── página ── */
+.page{display:flex;flex-direction:column;padding:11mm 14mm 8mm;font-family:var(--sans);color:var(--ink-soft);background:#fff}
+.page-body{flex:1;display:flex;flex-direction:column;gap:11pt}
+.page:not(:first-child){margin-top:26px}
+@media print{.page:not(:first-child){margin-top:0}}
+
+/* rótulos: um tamanho só em todo o documento */
+.label{font-family:var(--label);font-size:8pt;font-weight:700;letter-spacing:.13em;text-transform:uppercase}
+.eyebrow{display:inline-flex;align-items:center;gap:8pt;color:var(--ink-mute)}
+.eyebrow::before{content:"";width:10pt;height:2pt;background:var(--accent)}
+
+/* cabeçalho */
+.cv-head{display:grid;grid-template-columns:1.35fr 1fr;gap:28pt;align-items:start;padding-bottom:10pt;border-bottom:1px solid var(--line)}
+.cv-name{font-family:var(--display);font-weight:600;font-size:26pt;line-height:1;letter-spacing:-.025em;color:var(--ink);margin:6pt 0 5pt}
+.cv-role{font-size:10pt;line-height:1.45;color:var(--ink-soft)}
+.cv-contact{font-style:normal;font-size:9.5pt;line-height:1.75;text-align:right;color:var(--ink-soft)}
+.cv-contact strong{color:var(--ink);font-weight:600}
+
+/* seções */
+.sec{display:flex;flex-direction:column;gap:8pt}
+.sec-head{display:flex;align-items:baseline;gap:10pt}
+.sec-num{font-family:var(--label);font-size:8pt;font-weight:700;letter-spacing:.13em;color:var(--accent)}
+.sec-head h2{font-family:var(--display);font-weight:600;font-size:15pt;line-height:1;letter-spacing:-.02em;color:var(--ink)}
+.sec + .sec{padding-top:10pt;border-top:1px solid var(--line-soft)}
+
+p{font-size:9.6pt;line-height:1.45;text-wrap:pretty}
+p strong{color:var(--ink);font-weight:600}
+.stack{display:flex;flex-direction:column;gap:15pt}
+
+/* entradas de experiência e formação */
+.entry-row{display:flex;justify-content:space-between;align-items:baseline;gap:14pt}
+.entry h3{font-family:var(--display);font-weight:600;font-size:11.5pt;line-height:1.25;letter-spacing:-.015em;color:var(--ink)}
+.entry-when{color:var(--ink-mute);white-space:nowrap}
+.entry-where{font-size:9.6pt;font-weight:600;color:var(--accent);margin:2pt 0 4pt}
+.entry p{font-size:9.6pt;line-height:1.42}
+.bullets{list-style:none;margin:4pt 0 0;padding:0;display:flex;flex-direction:column;gap:2pt}
+.bullets li{position:relative;padding-left:13pt;font-size:9.6pt;line-height:1.42}
+.bullets li::before{content:"";position:absolute;left:0;top:.55em;width:4pt;height:4pt;background:var(--accent)}
+.grid-2{display:grid;grid-template-columns:repeat(4,1fr);gap:12pt 18pt;align-items:start}
+
+/* competências */
+.skill h4{color:var(--accent-2);margin-bottom:6pt}
+.list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:3pt}
+.list li{position:relative;padding-left:12pt;font-size:9.6pt;line-height:1.42}
+.list li::before{content:"";position:absolute;left:0;top:.52em;width:4pt;height:4pt;background:var(--ink-mute)}
+
+/* idiomas */
+.langs{display:flex;gap:34pt;flex-wrap:wrap}
+.lang{display:flex;align-items:baseline;gap:8pt}
+.lang strong{font-family:var(--display);font-weight:600;font-size:11.5pt;color:var(--ink)}
+.lang span{color:var(--ink-mute)}
+
+/* fecho da última página */
+.closer{padding-top:15pt;border-top:1px solid var(--line)}
+.closer h3{font-family:var(--display);font-weight:600;font-size:13pt;letter-spacing:-.02em;color:var(--ink);margin-bottom:6pt}
+.closer-links{display:flex;gap:26pt;flex-wrap:wrap;margin-top:8pt;font-size:10pt}
+
+/* rodapé: só a paginação */
+.page-foot{display:flex;justify-content:flex-end;padding-top:6pt;margin-top:8pt;border-top:1px solid var(--line-soft)}
+.page-foot span{font-family:var(--label);font-size:8pt;font-weight:700;letter-spacing:.13em;color:var(--ink-mute)}
+</style>
+
+</head>
+<body>
+
+<div class="cv-top">
+  <a class="brand" href="index.html">Emerson</a>
+  <div class="cv-top-actions">
+    <a class="cv-btn cv-btn-ghost" href="index.html">Voltar</a>
+    <button class="cv-btn cv-btn-mint" type="button" onclick="window.print()">Baixar PDF</button>
+  </div>
+</div>
+
+<doc-page size="a4">
+
+  <!-- ─────────── PÁGINA 1 — perfil e experiência ─────────── -->
+  <section class="page" id="p1">
+    <div class="page-body">
+      <header class="cv-head">
+        <div>
+          <span class="eyebrow label">Currículo · 2026</span>
+          <h1 class="cv-name">Emerson Siqueira</h1>
+          <p class="cv-role">Product Designer com 6 anos em educação, saúde e produtos digitais, com foco em pesquisa, prototipação e design centrado no usuário.</p>
+        </div>
+        <address class="cv-contact">
+          <strong>Belo Horizonte, MG</strong><br />
+          <a href="mailto:emersonsiqueira@live.com">emersonsiqueira@live.com</a><br />
+          linkedin.com/in/emesiqueira<br />
+          behance.net/emesiqueira
+        </address>
+      </header>
+
+      <section class="sec">
+        <div class="sec-head"><span class="sec-num">01</span><h2>Resumo</h2></div>
+        <p>Designer de Produto com 6 anos de experiência em educação, saúde, governo e publicidade. Atualmente na <strong>MedRoom</strong>, edtech que usa realidade virtual para o ensino de anatomia, onde cuido da experiência do usuário na plataforma web.</p>
+        <p>Atuo em todas as etapas do processo: pesquisa, prototipação e validação de soluções centradas no usuário para desktop, tablet e mobile. Tenho forte interesse em Design Systems, acessibilidade (WCAG) e na integração entre design e engenharia.</p>
+      </section>
+
+      <section class="sec">
+        <div class="sec-head"><span class="sec-num">02</span><h2>Experiência</h2></div>
+        <div class="stack">
+          <div class="entry">
+            <div class="entry-row"><h3>Designer de Produto</h3><span class="entry-when label">Jul 2022 — Presente</span></div>
+            <div class="entry-where">MedRoom · Edtech de saúde (realidade virtual)</div>
+            <p>Responsável pela experiência do usuário na plataforma web, focada em aulas de anatomia em 3D com VR (Meta Quest).</p>
+            <ul class="bullets">
+              <li>Reformulei telas e corrigi falhas, elevando a usabilidade da plataforma</li>
+              <li>Conduzi pesquisas, validei hipóteses e criei protótipos para otimizar fluxos</li>
+              <li>Desenvolvi soluções responsivas para desktop, tablet e smartphone</li>
+            </ul>
+          </div>
+          <div class="entry">
+            <div class="entry-row"><h3>Designer de Interface</h3><span class="entry-when label">Mai 2021 — Jul 2022</span></div>
+            <div class="entry-where">Uaify · Agência de performance e lançamentos</div>
+            <p>Interfaces para marcas do agronegócio como Case IH, New Holland e Iveco.</p>
+            <ul class="bullets">
+              <li>Interfaces de baixa e alta fidelidade alinhadas aos requisitos do projeto</li>
+              <li>Protótipos funcionais e pesquisas com usuários gerando insights</li>
+              <li>Colaboração com desenvolvedores em times Agile/Scrum e Design Systems (Google, Bootstrap)</li>
+            </ul>
+          </div>
+          <div class="entry">
+            <div class="entry-row"><h3>Extensionista UX/UI Designer</h3><span class="entry-when label">Jan 2021 — Dez 2021</span></div>
+            <div class="entry-where">PUC Minas · Software de gestão hospitalar</div>
+            <p>Atuei da coleta de requisitos à implementação, desenhando interfaces intuitivas com metodologias ágeis (Scrum).</p>
+          </div>
+          <div class="entry">
+            <div class="entry-row"><h3>Bolsista UX/UI Designer</h3><span class="entry-when label">Out 2019 — Dez 2020</span></div>
+            <div class="entry-where">Fapemig · Plataforma de iniciação científica</div>
+            <p>Interfaces de baixa e alta fidelidade para gestão de projetos de iniciação científica, com pesquisa e recomendações de melhoria.</p>
+          </div>
+          <div class="entry">
+            <div class="entry-row"><h3>Designer e Fotógrafo</h3><span class="entry-when label">Abr 2018 — Out 2019</span></div>
+            <div class="entry-where">Rede Sagrado · Educação</div>
+            <p>Identidade visual, materiais gráficos e fotografia institucional para uma rede de ensino, do briefing à entrega final.</p>
+          </div>
+                </div>
+      </section>
+
+    </div>
+    <div class="page-foot"><span>1 / 2</span></div>
+  </section>
+
+  <!-- ─────────── PÁGINA 2 — formação, ferramentas e idiomas ─────────── -->
+  <section class="page" id="p2">
+    <div class="page-body">
+      <section class="sec">
+        <div class="sec-head"><span class="sec-num">03</span><h2>Formação</h2></div>
+        <div class="stack">
+          <div class="entry">
+            <div class="entry-row"><h3>Pós-graduação · IHC e UX</h3><span class="entry-when label">Em curso · 2026</span></div>
+            <div class="entry-where">PUC-Rio</div>
+          </div>
+          <div class="entry">
+            <div class="entry-row"><h3>Bacharelado em Design</h3><span class="entry-when label">2023 — 2025</span></div>
+            <div class="entry-where">Centro Universitário Una</div>
+          </div>
+          <div class="entry">
+            <div class="entry-row"><h3>Intercâmbio · Inglês</h3><span class="entry-when label">2024</span></div>
+            <div class="entry-where">ILSC Education Group · Toronto, Canadá</div>
+          </div>
+          <div class="entry">
+            <div class="entry-row"><h3>Técnico em Artes Visuais</h3><span class="entry-when label">2018</span></div>
+            <div class="entry-where">Casa dos Quadrinhos</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="sec">
+        <div class="sec-head"><span class="sec-num">04</span><h2>Ferramentas &amp; métodos</h2></div>
+        <div class="grid-2">
+          <div class="skill">
+            <h4 class="label">Ferramentas</h4>
+            <ul class="list"><li>Figma e FigJam</li><li>Framer</li><li>Miro</li><li>Cursor AI</li><li>Notion e Monday</li></ul>
+          </div>
+          <div class="skill">
+            <h4 class="label">Experiência do usuário</h4>
+            <ul class="list"><li>Pesquisas com usuários</li><li>Testes de usabilidade</li><li>Heurísticas de Nielsen</li><li>Jornadas e fluxos</li></ul>
+          </div>
+          <div class="skill">
+            <h4 class="label">Dados</h4>
+            <ul class="list"><li>Pesquisa quanti e quali</li><li>Testes A/B</li><li>Personas</li><li>Análise de funil</li></ul>
+          </div>
+          <div class="skill">
+            <h4 class="label">Acessibilidade</h4>
+            <ul class="list"><li>WCAG 2.1</li><li>Tecnologias assistivas</li><li>Design inclusivo</li></ul>
+          </div>
+        </div>
+      </section>
+      <section class="sec">
+        <div class="sec-head"><span class="sec-num">05</span><h2>Idiomas</h2></div>
+        <div class="langs">
+          <div class="lang"><strong>Português</strong><span class="label">Nativo</span></div>
+          <div class="lang"><strong>Inglês</strong><span class="label">Profissional · B2</span></div>
+          <div class="lang"><strong>Espanhol</strong><span class="label">Básico</span></div>
+        </div>
+      </section>
+    </div>
+    <div class="page-foot"><span>2 / 2</span></div>
+  </section>
+
+</doc-page>
+
+<script src="scripts/cv-i18n.js"></script>
+<script src="doc-page.js"></script>
+<script>
+  (function () {
+    const p = new URLSearchParams(location.search);
+    if (p.get('embed') === '1') document.body.classList.add('embed');
+    if (p.get('print') === '1') window.addEventListener('load', () => setTimeout(() => window.print(), 400));
+  })();
+</script>
+
+</body>
+</html>

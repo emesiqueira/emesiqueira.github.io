@@ -1,0 +1,114 @@
+/* Mockups fluidos — o retrato precisa sobreviver a qualquer medida.
+   docs/CASE-PAGES.md §4/§6: molduras nunca de largura fixa, tela sempre em
+   estado de uso, e texto de mockup pode ser pequeno mas tem de LER.
+   Por isso cada medida é proporcional ao contêiner (cqw, base autoral de
+   390px no celular e 1280px no browser) com piso em px: max(piso, proporção).
+   Pisos: 9px em texto corrido, 8px em micro-label caixa alta. */
+
+/* ─────────── CELULAR (base autoral: 390px) ─────────── */
+/* ATENÇÃO: .sb-phone É o container, então cqw AQUI resolve contra um ancestral,
+   não contra ele mesmo — o bezel virava oval e a tela era esmagada.
+   A geometria do próprio bezel usa % (da própria largura) e px. */
+.sb-phone{container-type:inline-size;border-radius:3px;padding:0;box-shadow:0 40px 70px -28px rgba(0,0,0,.85),0 0 0 1px rgba(200,164,85,.16)}
+.sb-phone-notch{top:4.1cqw;width:23cqw;height:5.6cqw;border-radius:3.6cqw}
+.sb-phone-screen{border-radius:3px}
+.sb-phone-screen .status{padding:3.6cqw 5.6cqw 0;font-size:max(8px,2.3cqw)}
+
+.sb-phone-hero-body{padding:7.2cqw 5.6cqw 0}
+.sb-phone-hero-body .eyebrow{font-size:max(8px,2.05cqw);margin-bottom:3.1cqw;gap:2cqw}
+.sb-phone-hero-body .eyebrow::before{width:3.6cqw}
+.sb-phone-hero-body .badge{width:9.7cqw;height:9.7cqw;font-size:max(12px,4.4cqw);margin-bottom:3.1cqw}
+.sb-phone-hero-body h1{font-size:max(17px,6.7cqw);margin-bottom:3.1cqw}
+.sb-phone-hero-body p{font-size:max(9px,2.56cqw);margin-bottom:4.1cqw}
+.sb-phone-hero-body .cta{padding:2.6cqw 4.6cqw;font-size:max(8px,2.3cqw)}
+.sb-phone-hero-img{margin-top:5.1cqw;height:46cqw}
+
+.sb-phone-services{padding:7.2cqw 5.6cqw}
+.sb-phone-services .label{font-size:max(8px,2.05cqw);margin-bottom:2.05cqw}
+.sb-phone-services h2{font-size:max(14px,5.1cqw);margin-bottom:5.6cqw}
+.sb-phone-services .grid .card{padding:3.1cqw 2.6cqw;min-height:20.5cqw}
+.sb-phone-services .icon{width:5.6cqw;height:5.6cqw;font-size:max(8px,2.56cqw);margin-bottom:2.05cqw}
+.sb-phone-services .name{font-size:max(9.5px,2.8cqw);margin-bottom:.5cqw}
+.sb-phone-services .desc{font-size:max(8px,2.05cqw)}
+
+.sb-phone-clube{padding:7.2cqw 5.6cqw}
+.sb-phone-clube .label{font-size:max(8px,2.05cqw);margin-bottom:2.05cqw}
+.sb-phone-clube h2{font-size:max(15px,5.6cqw);margin-bottom:5.1cqw}
+.sb-phone-clube .plan{padding:3.6cqw}
+.sb-phone-clube .plan .top{font-size:max(8px,1.8cqw)}
+.sb-phone-clube .plan .name{font-size:max(12px,4.1cqw)}
+.sb-phone-clube .plan .sub{font-size:max(8px,2.05cqw)}
+.sb-phone-clube ul{margin:4.6cqw 0 4.1cqw}
+.sb-phone-clube ul li{font-size:max(9px,2.56cqw);padding-left:3.6cqw;margin-bottom:1.5cqw}
+.sb-phone-clube ul li::before{font-size:max(7px,1.8cqw)}
+.sb-phone-clube .cta{padding:2.05cqw 3.6cqw;font-size:max(8px,2.05cqw)}
+
+/* ─────────── BROWSER DESKTOP (base autoral: 1280px) ─────────── */
+.sb-browser-body{container-type:inline-size}
+.sbm-nav{padding:1.4cqw 3.4cqw}
+.sbm-logo-mark{width:2.5cqw;height:2.5cqw;min-width:22px;min-height:22px;font-size:max(13px,1.33cqw)}
+.sbm-logo{gap:.94cqw}
+.sbm-logo-wm strong{font-size:max(11px,1.17cqw)}
+.sbm-logo-wm span{font-size:max(8px,.72cqw);margin-top:.24cqw}
+.sbm-nav-links{gap:2.5cqw;font-size:max(9px,.94cqw)}
+.sbm-nav-right{font-size:max(8px,.8cqw);gap:1.1cqw}
+
+.sbm-hero{padding:6cqw 3.4cqw;min-height:0;gap:3.1cqw}
+.sbm-hero-eyebrow{font-size:max(8px,.8cqw);margin-bottom:1.9cqw;gap:1.1cqw}
+.sbm-hero-eyebrow::before{width:2.2cqw}
+.sbm-hero-badge{width:4.5cqw;height:4.5cqw;min-width:34px;min-height:34px;font-size:max(18px,2cqw);margin-bottom:1.6cqw}
+.sbm-hero h1{font-size:max(28px,4.06cqw);max-width:34cqw;margin-bottom:1.7cqw}
+.sbm-hero p{font-size:max(10px,1.1cqw);max-width:30cqw;margin-bottom:2.2cqw}
+.sbm-hero-ctas{gap:.94cqw;margin-bottom:3.1cqw}
+.sbm-btn-gold,.sbm-btn-outline{padding:1cqw 2.2cqw;font-size:max(8.5px,.86cqw)}
+.sbm-hero-stats{gap:3.1cqw;padding-top:2cqw}
+.sbm-hero-stats .stat-num{font-size:max(17px,2.2cqw)}
+.sbm-hero-stats .stat-label{font-size:max(8px,.7cqw);margin-top:.47cqw}
+.sbm-hero-photo{max-height:none}
+
+.sbm-services{padding:6cqw 3.4cqw}
+.sbm-section-tag{font-size:max(8px,.8cqw);margin-bottom:1.1cqw}
+.sbm-section-head{margin-bottom:3.75cqw}
+.sbm-section-head h2{font-size:max(22px,3.1cqw)}
+.sbm-service{padding:2.2cqw 1.9cqw}
+.sbm-service-icon{width:3cqw;height:3cqw;min-width:26px;min-height:26px;font-size:max(11px,1.1cqw);margin-bottom:1.4cqw}
+.sbm-service-name{font-size:max(11px,1.25cqw);margin-bottom:.63cqw}
+.sbm-service-desc{font-size:max(9px,.94cqw)}
+
+.sbm-clube{padding:6cqw 3.4cqw;gap:4.7cqw}
+.sbm-clube h2{font-size:max(21px,3cqw);margin:.94cqw 0 1.25cqw}
+.sbm-clube p{font-size:max(9.5px,1cqw);max-width:36cqw;margin-bottom:1.9cqw}
+.sbm-clube ul{gap:.8cqw 1.9cqw;margin-bottom:2.2cqw}
+.sbm-clube ul li{font-size:max(9px,.94cqw);padding-left:1.4cqw}
+.sbm-clube ul li::before{font-size:max(7px,.7cqw)}
+.sbm-clube-badge{padding:2cqw 2.2cqw}
+.sbm-clube-badge .plano{font-size:max(8px,.7cqw)}
+.sbm-clube-badge .name{font-size:max(14px,1.56cqw)}
+.sbm-clube-badge .sub{font-size:max(8px,.78cqw)}
+
+/* os celulares se acomodam pela largura DISPONÍVEL, não pela do viewport:
+   cada bezel nunca abaixo de ~240px, então 3 → 2 → 1 por linha sozinho. */
+.sb-phones{grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+
+/* ─────────── CARD DE SISTEMA (paleta + especimen) ───────────
+   A medida vem da coluna do .case-deep, não do viewport: dentro da camada
+   profunda o card ocupa a coluna inteira e ele mesmo vira contêiner, então
+   paleta e especimen reagem à largura que realmente têm. */
+.case-deep-main .sb-system-grid{grid-template-columns:minmax(0,1fr);gap:20px}
+.sb-card{container-type:inline-size;container-name:card}
+
+@container card (max-width: 520px){
+  .sb-palette{gap:6px}
+  .sb-swatch{padding:8px 6px;aspect-ratio:1/1.35}
+  .sb-swatch-name{display:none}
+  .sb-swatch-hex{font-size:8px;letter-spacing:0}
+  .sb-type-row{grid-template-columns:1fr;gap:10px;padding:16px 0}
+  .sb-type-sample-serif{font-size:30px}
+  .sb-type-sample-sans{font-size:14px}
+}
+@container card (max-width: 420px){
+  .sb-swatch-hex{display:none}
+  .sb-swatch{aspect-ratio:1/1.7;padding:0}
+  .sb-palette{gap:4px}
+  .sb-type-sample-serif{font-size:24px}
+}

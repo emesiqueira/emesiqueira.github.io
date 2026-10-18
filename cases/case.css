@@ -1,0 +1,306 @@
+/* ============================================================
+   CASE PAGE STYLES — frame das páginas internas de projeto
+   Regras em docs/CASE-PAGES.md
+   Depende de styles/portfolio-v2.css (tokens). NÃO depende de main.css.
+   Princípio: o cromo é acromático; a cor pertence ao projeto exibido.
+   ============================================================ */
+
+/* apelidos de compatibilidade com o CSS local antigo das páginas.
+   CSS novo deve usar --sans / --serif / --chunk / --pixel / --mint. */
+:root{--font:var(--sans);--font-editorial:var(--serif);--font-ritual:var(--chunk);--amber:var(--mint);--amber-bright:#9ff0ba;--line-2:rgba(236,228,214,0.22);--surface:rgba(236,228,214,0.025);--surface-2:rgba(236,228,214,0.05);--ink-dark:#1a1820}
+
+.case-page{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.case-page *,.case-page *::before,.case-page *::after{box-sizing:border-box}
+.case-page a{color:inherit;text-decoration:none}
+.case-page a:hover{color:var(--mint)}
+
+/* ─────────── BARRA SUPERIOR ───────────
+   Três funções, nada repetido: sair, saber onde estou, seguir.
+   O filete inferior mostra quanto do case falta. */
+.case-back{position:sticky;top:0;z-index:20;border-bottom:1px solid var(--line);background:rgba(20,19,24,.86);backdrop-filter:blur(10px)}
+.case-back-inner{max-width:var(--max);margin:0 auto;padding:11px var(--pad);display:flex;align-items:center;gap:24px}
+.case-exit{display:inline-flex;align-items:baseline;gap:10px;color:var(--ink-soft);transition:color .25s var(--ease)}
+.case-exit:hover{color:var(--ink)}
+.case-exit-wm{position:relative;font-family:var(--serif);font-weight:600;font-size:18px;letter-spacing:-.02em;color:var(--ink);line-height:1;white-space:nowrap}
+.case-exit-sub{font-family:var(--pixel);font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-mute)}
+.case-exit:hover .case-exit-sub{color:var(--mint)}
+.case-exit .arrow-back{display:inline-block;width:16px;height:1px;background:currentColor;position:relative;align-self:center;transition:width .25s var(--ease)}
+.case-exit .arrow-back::before{content:"";position:absolute;left:0;top:50%;width:6px;height:6px;border-left:1px solid currentColor;border-bottom:1px solid currentColor;transform:translateY(-50%) rotate(45deg)}
+.case-exit:hover .arrow-back{width:24px}
+.case-exit .brand-spark{position:absolute;top:.08em;right:-.26em;width:.34em;height:.34em;color:var(--coral);pointer-events:none}
+.case-exit .brand-spark svg{display:block;width:100%;height:100%;overflow:visible}
+.case-back-meta{margin:0 auto;font-family:var(--pixel);font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-mute);white-space:nowrap}
+.case-next{display:flex;flex-direction:column;align-items:flex-end;gap:3px;text-align:right;color:var(--ink-soft);transition:color .25s var(--ease)}
+.case-next-k{font-family:var(--pixel);font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-mute)}
+.case-next-v{display:inline-flex;align-items:center;gap:8px;font-family:var(--chunk);font-weight:600;font-size:12.5px;letter-spacing:.01em;color:var(--ink)}
+.case-next:hover{color:var(--ink)}
+.case-next:hover .case-next-k{color:var(--mint)}
+.case-next:hover .case-next-v{color:var(--mint)}
+/* trilha de progresso — idêntica à .im-progress da home */
+.case-progress{position:fixed;top:0;left:0;right:0;height:2px;z-index:150;pointer-events:none;background:transparent}
+.case-progress i{display:block;height:100%;width:100%;transform:scaleX(0);transform-origin:0 50%;background:linear-gradient(90deg,var(--coral),var(--mint))}
+
+/* ─────────── HERO ─────────── */
+.case-hero{position:relative;padding:88px var(--pad) 72px;border-bottom:1px solid var(--line);background:var(--bg);overflow:hidden}
+.case-hero-inner{max-width:var(--max);margin:0 auto;position:relative;z-index:2}
+.case-hero-eyebrow{display:flex;align-items:center;gap:12px;font-family:var(--pixel);font-size:10.5px;letter-spacing:0.1em;text-transform:uppercase;color:var(--mint);margin:0 0 26px}
+.case-hero-eyebrow::before{content:"";width:12px;height:4px;background:var(--mint)}
+.case-hero h1{font-family:var(--serif);font-weight:600;font-size:clamp(38px,5.4vw,68px);line-height:1.02;letter-spacing:-0.035em;margin:0 0 12px;color:var(--ink);max-width:22ch;text-wrap:balance}
+.case-hero-tagline{font-family:var(--serif);font-weight:400;font-size:clamp(22px,2.6vw,32px);line-height:1.15;letter-spacing:-0.02em;color:var(--ink-soft);margin:0 0 22px;max-width:26ch;text-wrap:balance}
+/* ── LOGICA DE COR DOS CASES ──
+   mint = primaria: rotulos estruturais em pixel/mono (eyebrow, rotulo do
+   resumo, numero de secao, indice ativo, metricas, trilhas).
+   coral = secundaria, so assinatura de autoria: a faisca do wordmark, a
+   estrela do titulo e o link de codigo. Nunca nos rotulos que já são mint.
+   Titulos (serif/chunk) ficam neutros — sem destaque colorido dentro deles. */
+.case-hero h1 em,.case-hero-tagline em,.case-section h2 em,.case-tldr h4{color:var(--ink);font-style:normal}
+/* estrela de autoria no fim do titulo — cintila sem apagar */
+.case-h1-star{display:inline-block;width:.42em;height:.42em;margin-left:.18em;vertical-align:.28em;image-rendering:pixelated;animation:caseTwinkle 3.2s ease-in-out infinite}
+@keyframes caseTwinkle{0%,100%{transform:scale(1);opacity:.72;filter:drop-shadow(0 0 4px rgba(232,105,74,.22))}50%{transform:scale(1.12);opacity:1;filter:drop-shadow(0 0 10px rgba(232,105,74,.5))}}
+@media (prefers-reduced-motion:reduce){.case-h1-star{animation:none;opacity:1}}
+/* creditos do hero — só quando alguem de fora assinou parte do trabalho */
+.case-credits{margin-top:20px;padding-top:16px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:8px 28px;align-items:baseline}
+.case-credits-k{font-family:var(--chunk);font-weight:600;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-mute);margin-right:8px}
+.case-credit{font-family:var(--sans);font-size:13.5px;line-height:1.45;color:var(--ink-soft)}
+.case-credit b{color:var(--ink);font-weight:500}
+.case-page a.case-credit-link{font-family:var(--chunk);font-weight:600;font-size:11.5px;letter-spacing:.02em;color:var(--coral);border-bottom:1px solid rgba(232,105,74,.35);padding-bottom:2px}
+.case-page a.case-credit-link:hover{color:var(--ink);border-bottom-color:var(--ink)}
+@media (max-width:600px){.case-credits{flex-direction:column;gap:10px;align-items:flex-start}}
+.case-hero-sub{font-family:var(--sans);font-weight:300;font-style:normal;font-size:clamp(18px,2vw,23px);line-height:1.5;color:var(--ink-soft);max-width:660px;margin:0 0 52px;text-wrap:pretty}
+
+.case-hero-meta{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);--px:6px;overflow:hidden;max-width:900px}
+.case-hero-meta>div{background:var(--bg-2);padding:20px 22px}
+.case-hero-meta dt{font-family:var(--pixel);font-size:9.5px;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-mute);margin:0 0 9px}
+.case-hero-meta dd{font-family:var(--sans);font-size:14px;font-weight:500;color:var(--ink);margin:0;line-height:1.4}
+
+/* ─────────── RESUMO EM 30 SEGUNDOS (nível 1 de leitura) ─────────── */
+.case-tldr{background:var(--bg-2);border:1px solid var(--line-2);--px:7px;padding:30px 34px;margin-top:30px;max-width:900px}
+.case-tldr-lbl{font-family:var(--pixel);font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--mint);margin-bottom:20px}
+.case-tldr-grid{display:grid;grid-template-columns:1fr 1fr;gap:26px 40px}
+.case-tldr h4{font-family:var(--chunk);font-weight:700;font-size:13px;letter-spacing:.02em;color:var(--ink);margin:0 0 8px}
+.case-tldr p{font-family:var(--sans);font-size:14.5px;line-height:1.6;color:var(--ink);margin:0;max-width:400px;text-wrap:pretty}
+
+/* ─────────── CAMADA PROFUNDA + ÍNDICE FIXO (nível 2) ─────────── */
+.case-deep{background:var(--bg-2);border-top:1px solid var(--line)}
+.case-deep-inner{max-width:var(--max);margin:0 auto;padding:0 var(--pad);display:grid;grid-template-columns:206px 1fr;gap:48px;align-items:start}
+.case-toc{position:sticky;top:78px;display:grid;border:1px solid var(--line);margin:56px 0}
+.case-toc a{padding:12px 14px;display:flex;gap:10px;align-items:baseline;font-family:var(--chunk);font-weight:600;font-size:11.5px;letter-spacing:.01em;color:var(--ink-soft);box-shadow:inset 0 -1px 0 var(--line);transition:color .25s var(--ease),box-shadow .25s var(--ease)}
+.case-toc a:last-child{box-shadow:none}
+.case-toc a i{font-family:var(--pixel);font-style:normal;font-size:9px;color:var(--ink-mute)}
+.case-toc a:hover{color:var(--ink)}
+.case-toc a.on{color:var(--mint);box-shadow:inset 2px 0 0 var(--mint),inset 0 -1px 0 var(--line)}
+.case-toc a.on i{color:var(--mint)}
+.case-deep-main>.case-section{padding:56px 0;background:none;scroll-margin-top:74px}
+.case-deep-main>.case-section.tinted{background:none}
+.case-deep-main>.case-section+.case-section{border-top:1px solid var(--line)}
+.case-deep-main .case-section-inner{max-width:none;margin:0}
+.case-deep-main .case-section-head{grid-template-columns:1fr;gap:12px;margin-bottom:34px}
+.case-deep-main .case-section-num{line-height:1.5}
+.case-deep-main .case-body{grid-template-columns:1fr;gap:16px}
+
+/* ─────────── CAPA FULL-BLEED ─────────── */
+.case-cover{width:100%;height:clamp(360px,56vw,640px);position:relative;overflow:hidden;background:var(--bg-2);border-bottom:1px solid var(--line)}
+.case-cover .case-img-placeholder{width:100%;height:100%;border:none}
+
+/* ─────────── PLACEHOLDER DE IMAGEM ─────────── */
+.case-img-placeholder{width:100%;background:repeating-linear-gradient(45deg,rgba(236,228,214,0.02) 0 1px,transparent 1px 14px),var(--bg-3,#232029);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;min-height:280px}
+.case-img-placeholder::after{content:attr(data-label);font-family:var(--pixel);font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-mute);text-align:center;padding:24px}
+
+/* ─────────── SEÇÕES ─────────── */
+.case-section{padding:104px var(--pad);position:relative}
+.case-section+.case-section{border-top:1px solid var(--line)}
+.case-section.tinted{background:var(--bg-2)}
+.case-section-inner{max-width:var(--max);margin:0 auto}
+.case-section-head{display:grid;grid-template-columns:220px 1fr;gap:56px;margin-bottom:52px}
+.case-section-num{font-family:var(--pixel);font-size:10.5px;letter-spacing:0.09em;text-transform:uppercase;color:var(--mint);line-height:1.7}
+.case-section-num span{display:block;color:var(--ink-mute);margin-top:6px;font-size:9.5px}
+.case-section h2{font-family:var(--serif);font-weight:600;font-size:clamp(28px,3.4vw,42px);line-height:1.05;letter-spacing:-0.03em;margin:0;color:var(--ink);text-wrap:balance}
+
+/* ─────────── TEXTO LONGO ─────────── */
+.case-body{display:grid;grid-template-columns:220px 1fr;gap:56px}
+.case-body .case-body-side{font-family:var(--pixel);font-size:10px;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-mute);line-height:1.8}
+.case-body p{font-family:var(--sans);font-size:17px;line-height:1.7;color:var(--ink);margin:0 0 22px;max-width:720px;text-wrap:pretty}
+.case-body p:last-child{color:var(--ink-soft)}
+.case-body p.pull{font-family:var(--serif);font-weight:600;font-style:normal;font-size:clamp(21px,2.4vw,27px);line-height:1.3;letter-spacing:-0.025em;color:var(--ink);border-left:2px solid var(--mint);padding-left:24px;margin:36px 0;max-width:680px}
+
+/* ─────────── PROCESSO ─────────── */
+.case-process-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);--px:7px;overflow:hidden}
+.case-process-step{background:var(--bg);padding:38px 34px;display:flex;flex-direction:column;gap:13px;min-height:230px}
+.case-process-step-num{font-family:var(--pixel);font-size:10px;letter-spacing:0.09em;text-transform:uppercase;color:var(--mint)}
+.case-process-step h3{font-family:var(--serif);font-weight:600;font-size:24px;line-height:1.12;letter-spacing:-0.03em;margin:0;color:var(--ink)}
+.case-process-step p{font-family:var(--sans);font-size:14px;line-height:1.6;color:var(--ink-soft);margin:0}
+
+/* ─────────── BLOCOS DE IMAGEM ─────────── */
+.case-imgs{display:grid;gap:24px;margin:56px 0}
+.case-imgs.full>*{grid-column:1/-1}
+.case-imgs.split{grid-template-columns:1fr 1fr}
+.case-imgs.thirds{grid-template-columns:2fr 1fr}
+.case-imgs.thirds-rev{grid-template-columns:1fr 2fr}
+.case-imgs .case-img-placeholder.tall{min-height:480px}
+.case-imgs .case-img-placeholder.wide{min-height:360px}
+.case-imgs .case-img-placeholder.square{min-height:360px}
+.case-img-caption{grid-column:1/-1;font-family:var(--pixel);font-size:9.5px;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-mute);margin-top:-6px}
+
+/* ─────────── MÉTRICAS ─────────── */
+.case-results-grid{display:grid;grid-template-columns:repeat(4,1fr);margin-top:16px;border-top:1px solid var(--line)}
+.case-metric{padding:34px 24px 34px 0;border-bottom:1px solid var(--line);border-right:1px solid var(--line)}
+.case-metric:last-child{border-right:0;padding-right:0}
+.case-metric-num{font-family:var(--serif);font-size:clamp(48px,4.6vw,64px);font-weight:600;line-height:1;color:var(--ink);letter-spacing:-0.04em}
+.case-metric-num em{color:var(--mint);font-style:normal}
+.case-metric-label{margin-top:13px;font-family:var(--sans);font-size:12.5px;line-height:1.5;color:var(--ink-soft)}
+
+/* ─────────── APRENDIZADOS ─────────── */
+.case-learnings{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-top:8px}
+.case-learning{padding:30px 0;border-top:2px solid var(--mint)}
+.case-learning .num{font-family:var(--pixel);font-size:10px;letter-spacing:0.09em;color:var(--mint);margin-bottom:16px}
+.case-learning h4{font-family:var(--serif);font-weight:600;font-size:21px;line-height:1.18;letter-spacing:-0.03em;margin:0 0 13px;color:var(--ink)}
+.case-learning p{font-family:var(--sans);font-size:14px;line-height:1.6;color:var(--ink-soft);margin:0}
+
+/* ─────────── OUTROS CASES ─────────── */
+.case-related{padding:104px var(--pad) 112px;border-top:1px solid var(--line);background:var(--bg-2)}
+.case-related-inner{max-width:var(--max);margin:0 auto}
+.case-related-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:44px;gap:24px;flex-wrap:wrap}
+.case-related-head h2{font-family:var(--serif);font-weight:600;font-size:clamp(26px,2.8vw,36px);line-height:1.05;letter-spacing:-0.03em;margin:0;color:var(--ink)}
+.case-related-head .case-section-num{margin-bottom:12px}
+.case-related-back{display:inline-flex;align-items:center;gap:10px;font-family:var(--chunk);font-weight:600;font-size:11.5px;letter-spacing:0.14em;text-transform:uppercase;color:var(--ink-soft);padding:13px 22px;border:1px solid var(--line-2);--px:4px;transition:color .25s var(--ease),border-color .25s var(--ease)}
+.case-related-back:hover{color:var(--ink);border-color:var(--mint)}
+.case-related-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px}
+.arrow-ne{display:inline-block;width:8px;height:8px;border-top:1.5px solid currentColor;border-right:1.5px solid currentColor;transform:rotate(45deg)}
+
+/* ─────────── RODAPÉ ───────────
+   Igual ao da home: markup .foot-v2 + estilos de styles/portfolio-v2.css.
+   Aqui só o espaçamento do container, que na home vem de .wrap. */
+.case-page .foot-v2{background:var(--bg)}
+.case-page .foot-v2 .wrap{max-width:var(--max);margin:0 auto;padding-left:var(--pad);padding-right:var(--pad)}
+
+/* cantos pixelados nos contêineres do frame (docs/CASE-PAGES.md §5:
+   degrau real de var(--px), nunca border-radius arredondado) */
+.case-hero-meta,.case-tldr,.case-process-grid,.case-related-back{border-radius:0;clip-path:polygon(var(--px) 0,calc(100% - var(--px)) 0,calc(100% - var(--px)) var(--px),100% var(--px),100% calc(100% - var(--px)),calc(100% - var(--px)) calc(100% - var(--px)),calc(100% - var(--px)) 100%,var(--px) 100%,var(--px) calc(100% - var(--px)),0 calc(100% - var(--px)),0 var(--px),var(--px) var(--px))}
+
+/* ─────────── REVEAL ─────────── */
+.case-page .rv{opacity:0;transform:translateY(22px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.case-page .rv.in{opacity:1;transform:none}
+
+/* ─────────── "CONTINUAR LENDO" (só mobile, ver §10 do doc) ─────────── */
+.case-clamped>p:nth-of-type(n+3){display:none}
+.case-more{appearance:none;background:none;border:0;border-top:1px solid var(--line);width:100%;text-align:left;padding:14px 0 0;margin-top:4px;min-height:44px;font-family:var(--chunk);font-weight:600;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--mint);cursor:pointer;display:flex;align-items:center;gap:10px}
+.case-more::after{content:"";width:6px;height:6px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg);margin-bottom:3px}
+
+/* ─────────── RESPONSIVO ───────────
+   Mobile não é o desktop estreito: menos altura, mesma leitura.
+   Alvos: 1440 / 1024 / 900 / 768 / 430 / 375 / 320. */
+@media (max-width:1024px){
+  .case-deep-inner{grid-template-columns:180px 1fr;gap:34px}
+  .case-section{padding:84px var(--pad)}
+}
+@media (max-width:920px){
+  .case-tldr{padding:22px 22px 24px;margin-top:24px}
+  .case-tldr-grid{grid-template-columns:1fr 1fr;gap:22px 26px}
+  .case-tldr p{max-width:none;font-size:14px}
+  .case-deep-inner{grid-template-columns:1fr;gap:0}
+  .case-hero{padding:56px var(--pad) 44px}
+  .case-hero-eyebrow{margin-bottom:18px}
+  .case-hero h1{margin-bottom:10px;max-width:none}
+  .case-hero-tagline{font-size:20px;margin-bottom:16px;max-width:none}
+  .case-hero-sub{margin-bottom:30px;font-size:17px}
+  .case-hero-meta{grid-template-columns:repeat(2,1fr)}
+  .case-hero-meta>div{padding:15px 16px}
+  .case-section{padding:52px var(--pad)}
+  .case-section-head,.case-body{grid-template-columns:1fr;gap:16px}
+  .case-section-head{margin-bottom:28px}
+  .case-body p{font-size:16px;line-height:1.65;margin-bottom:18px}
+  .case-body p.pull{margin:24px 0;padding-left:18px}
+  .case-body .case-body-side{line-height:1.6}
+  .case-process-grid{grid-template-columns:1fr}
+  .case-process-step{min-height:0;padding:24px 22px;gap:10px}
+  .case-process-step h3{font-size:21px}
+  .case-imgs{gap:16px;margin:34px 0}
+  .case-imgs.split,.case-imgs.thirds,.case-imgs.thirds-rev{grid-template-columns:1fr}
+  .case-img-placeholder{min-height:clamp(150px,40vw,240px)}
+  .case-imgs .case-img-placeholder.tall{min-height:clamp(220px,64vw,380px)}
+  .case-imgs .case-img-placeholder.wide,.case-imgs .case-img-placeholder.square{min-height:clamp(170px,48vw,300px)}
+  .case-cover{height:clamp(210px,44vw,360px)}
+  .case-results-grid{grid-template-columns:repeat(2,1fr)}
+  .case-metric{padding:22px 18px 22px 0}
+  .case-metric-num{font-size:clamp(36px,10vw,48px)}
+  .case-metric-label{margin-top:9px;font-size:12px}
+  .case-metric:nth-child(odd){border-right:1px solid var(--line);padding-right:18px}
+  .case-metric:nth-child(even){border-right:0;padding-left:18px;padding-right:0}
+  .case-learnings{grid-template-columns:1fr;gap:0}
+  .case-learning{padding:20px 0;border-top:1px solid var(--line)}
+  .case-learning:first-child{border-top:2px solid var(--mint)}
+  .case-learning .num{margin-bottom:10px}
+  .case-learning h4{font-size:18px;margin-bottom:8px}
+  .case-related{padding:52px var(--pad) 60px}
+  .case-related-head{margin-bottom:26px}
+  .case-related-grid{display:flex;grid-template-columns:none;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;overscroll-behavior-x:contain;scrollbar-width:none;-webkit-overflow-scrolling:touch;margin:0 calc(-1 * var(--pad));padding:2px var(--pad)}
+  .case-related-grid::-webkit-scrollbar{display:none}
+  .case-related-grid>*{flex:0 0 min(80%,320px);scroll-snap-align:center}
+}
+/* índice: de coluna fixa a trilha horizontal grudada sob a barra.
+   Mantém o mapa e o pulo de seção sem gastar ~260px de altura. */
+@media (max-width:920px){
+  .case-toc{position:sticky;top:var(--case-bar,47px);z-index:15;display:flex;margin:0 calc(-1 * var(--pad));padding:0 var(--pad);border:0;border-bottom:1px solid var(--line);background:rgba(27,25,34,.95);backdrop-filter:blur(10px);overflow-x:auto;overscroll-behavior-x:contain;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .case-toc::-webkit-scrollbar{display:none}
+  .case-toc a{flex:0 0 auto;display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 14px;white-space:nowrap;font-size:11px;box-shadow:none}
+  .case-toc a.on{box-shadow:inset 0 -2px 0 var(--mint)}
+  .case-deep-main>.case-section{padding:44px 0;scroll-margin-top:96px}
+  .case-deep-main>.case-section:first-child{padding-top:34px}
+}
+@media (max-width:760px){
+  .case-back-meta{display:none}
+  .case-next-k{display:none}
+  .case-back-inner{gap:14px;justify-content:space-between}
+  .case-next{min-height:44px;justify-content:center}
+  .case-exit{min-height:44px;align-items:center}
+}
+@media (max-width:560px){
+  .case-page{--pad:calc(18px + env(safe-area-inset-left,0px));font-size:14.5px}
+  .case-exit-sub{display:none}
+  .case-next-v{font-size:11.5px}
+  .case-hero{padding:40px var(--pad) 34px}
+  .case-hero h1{font-size:clamp(30px,8.6vw,40px);letter-spacing:-.03em}
+  .case-hero-tagline{font-size:18px}
+  .case-hero-sub{font-size:16px;margin-bottom:24px}
+  .case-tldr-grid{grid-template-columns:1fr;gap:18px}
+  .case-tldr{padding:20px 18px 22px}
+  .case-hero-meta>div{padding:13px 14px}
+  .case-hero-meta dd{font-size:13.5px}
+  .case-hero-meta dt{margin-bottom:6px}
+  .case-section h2{font-size:clamp(24px,7vw,30px)}
+  .case-page .foot-right{align-items:flex-start}
+}
+/* 320px: nada de duas colunas apertadas nas métricas */
+@media (max-width:360px){
+  .case-hero-meta{grid-template-columns:1fr}
+  .case-results-grid{grid-template-columns:1fr}
+  .case-metric,.case-metric:nth-child(odd),.case-metric:nth-child(even){border-right:0;padding:18px 0}
+}
+/* telefone deitado: hero curto, sem tela cheia de título */
+@media (max-width:920px) and (max-height:520px) and (orientation:landscape){
+  .case-hero{padding:30px var(--pad) 26px}
+  .case-hero h1{font-size:clamp(26px,4.4vw,34px)}
+  .case-hero-sub{margin-bottom:20px}
+  .case-toc{top:0}
+}
+@media (prefers-reduced-motion:reduce){
+  .case-progress{display:none}
+  .case-page .rv{opacity:1;transform:none;transition:none}
+  .case-related-card:hover{transform:none}
+}
+/* dispositivo de toque: hover não existe, então nada de estado preso */
+@media (hover:none){
+  .case-related-card:hover,.proj-card:hover{transform:none}
+}
+
+/* ─────────── CONTROLE DE TRILHA (mobile) ─────────── */
+.rail-nav{display:none}
+@media (max-width:920px){
+  .rail-nav{display:flex;align-items:center}
+  .rail-nav[hidden]{display:none}
+  .rail-btn{appearance:none;background:none;border:0;cursor:pointer;color:var(--ink-mute)}
+  .rail-nav.is-dots{gap:2px;margin-top:16px;justify-content:center}
+  .rail-nav.is-dots .rail-btn{width:34px;height:34px;display:grid;place-items:center}
+  .rail-nav.is-dots .rail-btn::before{content:"";width:7px;height:7px;background:var(--line);transition:background .2s,width .2s}
+  .rail-nav.is-dots .rail-btn.on::before{width:20px;background:var(--mint)}
+}

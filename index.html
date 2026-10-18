@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Emerson Siqueira · UX/UI &amp; Product Designer</title>
+  <meta name="description" content="Product Designer há 6 anos, com pós em IHC e UX pela PUC-Rio. Da pesquisa à entrega: método, protótipo e métricas reais. Belo Horizonte &amp; Rio, remoto e internacional." />
+  <meta name="author" content="Emerson Siqueira" />
+  <meta name="theme-color" content="#141318" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="assets/favicon.svg" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Emerson Siqueira" />
+  <meta property="og:locale" content="pt_BR" />
+  <meta property="og:title" content="Emerson Siqueira · UX/UI &amp; Product Designer" />
+  <meta property="og:description" content="Desenho experiências que fazem sentido e funcionam de verdade. Da pesquisa à entrega." />
+  <meta property="og:image" content="assets/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Emerson Siqueira, UX/UI e Product Designer" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Emerson Siqueira · UX/UI &amp; Product Designer" />
+  <meta name="twitter:description" content="Desenho experiências que fazem sentido e funcionam de verdade. Da pesquisa à entrega." />
+  <meta name="twitter:image" content="assets/og-image.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,500;1,600&family=Bricolage+Grotesque:opsz,wght@12,600;12,700;12,800&family=Manrope:wght@400;500;600;700&display=swap&family=Silkscreen:wght@400;700&family=Space+Grotesk:wght@400;500;600;700" rel="stylesheet" />
+  <link rel="stylesheet" href="styles/portfolio-v2.css?v=28" />
+  <link rel="stylesheet" href="styles/immersive.css?v=2" />
+  <style>
+    /* ===== V1 GRIMÓRIO — editorial dark, sparse margin stickers ===== */
+    .g-hero { position: relative; padding: clamp(40px,7vw,90px) 0 clamp(50px,8vw,100px); overflow: hidden; }
+    .g-hero-grid { display: grid; grid-template-columns: 1.18fr 0.82fr; gap: clamp(30px,5vw,70px); align-items: center; }
+    .g-hero h1 { font-family: var(--serif); font-size: clamp(32px, 4.4vw, 58px); line-height: 1.05; letter-spacing: -0.02em; }
+    .g-hero h1 .it { font-size: 1.02em; }
+    .g-hero p.lead { font-family: var(--sans); font-size: clamp(15px,1.5vw,18px); line-height: 1.6; color: var(--ink-soft); max-width: 460px; margin: 26px 0 32px; }
+    .g-hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; }
+
+    .avail { display: inline-flex; align-items: center; gap: 9px; font-family: var(--chunk); font-weight: 600; font-size: 11.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-mute); border: 0; border-radius: 0; padding: 0; background: transparent; }
+    .avail .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--mint); animation: availPulse 2.4s var(--ease) infinite; }
+    @keyframes availPulse { 0%{ box-shadow: 0 0 0 0 color-mix(in srgb, var(--mint) 50%, transparent);} 70%{ box-shadow: 0 0 0 6px transparent;} 100%{ box-shadow: 0 0 0 0 transparent;} }
+    .domains { display: flex; gap: 8px; flex-wrap: wrap; margin: 20px 0 0; }
+    .domain { font-family: var(--sans); font-size: 12.5px; font-weight: 500; color: var(--ink-mute); border: 1px solid var(--line-soft); border-radius: 999px; padding: 5px 12px; }
+    .g-portrait-wrap { position: relative; justify-self: center; width: min(380px, 90%); }
+    /* o arco vive no próprio slot (mask), não num overflow:hidden do pai —
+       senão os controles "Replace/Edit" da foto ficam cortados pela curva */
+    .g-portrait { position: relative; z-index: 2; width: 100%; aspect-ratio: 3/4; border-radius: 200px 200px 20px 20px; border: 1px solid var(--line); }
+    .hv-short,.hv-meta,.hv-eyebrow{display:none}
+    .hv-meta{margin:22px 0 0;font-family:var(--sans);font-size:13px;color:var(--ink-mute);letter-spacing:.01em}
+    .hv-eyebrow{font-family:var(--pixel);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-mute)}
+    #hero[data-hv="b"] .domains{display:none}
+    #hero[data-hv="b"] .avail{opacity:.75}
+    #hero[data-hv="c"] .domains,#hero[data-hv="c"] .hv-long{display:none}
+    #hero[data-hv="c"] .hv-short{display:block}
+    #hero[data-hv="d"] .avail,#hero[data-hv="d"] .domains,#hero[data-hv="d"] .hv-long,#hero[data-hv="d"] .btn-ghost{display:none}
+    #hero[data-hv="d"] .hv-short,#hero[data-hv="d"] .hv-meta{display:block}
+    #hero[data-hv="d"] .hv-eyebrow{display:block;order:-1}
+    #hero[data-hv="d"] .g-hero-grid>div:first-child{display:flex;flex-direction:column}
+    #hero[data-hv="d"] h1{font-size:clamp(36px,5.2vw,68px);margin-top:16px!important}
+    #hero[data-hv="d"] .g-hero-ctas{order:5}#hero[data-hv="d"] .hv-meta{order:6}
+    .g-portrait:has(.av-stage){border:0}.g-portrait-wrap:has(.av-stage) .g-orbit{display:none}
+    .av-stage{position:absolute;inset:0;overflow:visible;perspective:900px;cursor:pointer;touch-action:pan-y;user-select:none;-webkit-user-select:none}
+    .av-stage::before{content:"";position:absolute;left:50%;top:46%;width:96%;aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;background:radial-gradient(circle,color-mix(in srgb,var(--lilac) 34%,transparent) 0%,color-mix(in srgb,var(--mint) 12%,transparent) 45%,transparent 70%);filter:blur(6px);pointer-events:none}
+    .av-head img{filter:saturate(.88) contrast(1.04) drop-shadow(0 0 1px color-mix(in srgb,var(--lilac) 60%,transparent)) drop-shadow(0 18px 28px rgba(0,0,0,.35))}
+    .av-shadow{background:color-mix(in srgb,var(--lilac) 30%,rgba(0,0,0,.6))!important}
+    .av-head{position:absolute;left:50%;top:50%;width:90%;aspect-ratio:600/800;transform-style:preserve-3d;will-change:transform}
+    .av-head img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:50% 50%;opacity:0;transform:translateZ(30px) scale(.94);transition:opacity .28s var(--ease),transform .45s cubic-bezier(.34,1.56,.64,1);pointer-events:none;-webkit-user-drag:none}
+    .av-head img.on{opacity:1;transform:translateZ(30px) scale(1)}
+    .av-sheen{position:absolute;inset:0;transform:translateZ(31px);pointer-events:none;mix-blend-mode:soft-light;-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center;background:radial-gradient(circle at var(--sx,50%) var(--sy,30%),rgba(255,255,255,.55),transparent 55%)}
+    .av-shadow{position:absolute;left:50%;bottom:7%;width:46%;height:5%;border-radius:50%;background:rgba(0,0,0,.45);filter:blur(10px);transform:translateX(-50%);pointer-events:none}
+    @media (prefers-reduced-motion: reduce){.av-head img{transition:opacity .2s}}
+    .g-portrait-wrap:has(.av-ctl){align-self:start;margin-top:-10px;margin-bottom:60px;width:min(380px,90%,max(220px,calc((100svh - 290px)*.75)))}
+    .av-ctl{position:absolute;left:-40px;right:-40px;top:calc(100% + 12px);z-index:3;display:flex;justify-content:center;font-family:var(--pixel);text-transform:uppercase;letter-spacing:.08em}
+    .av-ctl>div{display:none}.av-ctl[data-style="a"] .av-a,.av-ctl[data-style="b"] .av-b,.av-ctl[data-style="d"] .av-d{display:flex}
+    .av-ctl button{appearance:none;border:0;font:inherit;color:inherit;cursor:pointer}
+    .av-a{align-items:center;gap:12px}
+    .av-arrow{--px:4px;width:44px;height:44px;display:grid;place-items:center;background:var(--bg-3);color:var(--ink)!important;font-size:16px!important;transition:background .15s,color .15s,transform .1s}
+    .av-arrow:hover{background:var(--mint);color:var(--bg)!important}.av-arrow:active{transform:translateY(2px)}
+    .av-a-name{width:150px;text-align:center;font-size:16px;color:var(--ink)}
+    .av-pips{display:flex;justify-content:center;gap:6px;margin-top:8px}.av-pips i{width:8px;height:8px;background:var(--line)}.av-pips i.on{background:var(--mint)}
+    .av-b{flex-direction:column;align-items:center;gap:10px}
+    .av-b-lab{font-size:12px;color:var(--ink);min-height:1em}
+    .av-b-row{display:flex;gap:8px}
+    .av-slot{--px:4px;position:relative;width:56px;height:56px;background:var(--bg-3);padding:4px;transition:transform .15s var(--ease),background .15s}
+    .av-slot img{width:100%;height:100%;object-fit:contain;filter:grayscale(.7) brightness(.8);transition:filter .15s;pointer-events:none}
+    .av-slot:hover{transform:translateY(-3px)}.av-slot:hover img,.av-slot.on img{filter:none}.av-slot.on{background:var(--mint)}
+    .av-d{flex-direction:column;width:300px}
+    .av-d-top{display:flex;justify-content:space-between;font-size:11px;color:var(--ink-mute)}.av-d-top b{color:var(--ink);font-weight:400}
+    .av-d-track{position:relative;height:24px;margin-top:4px;cursor:pointer;touch-action:none}
+    .av-d-rail{position:absolute;left:0;right:0;top:11px;height:6px;background:var(--bg-3)}
+    .av-d-fill{position:absolute;left:0;top:11px;height:6px;background:linear-gradient(90deg,var(--coral),var(--yellow),var(--mint),var(--lilac))}
+    .av-d-stop{position:absolute;top:9px;width:2px;height:10px;background:var(--bg);margin-left:-1px}
+    .av-d-knob{--px:3px;position:absolute;top:2px;width:24px;height:24px;margin-left:-12px;background:var(--ink);transition:left .25s var(--ease)}
+    .av-d-track.drag .av-d-knob{transition:none}
+    .av-d-ends{display:flex;justify-content:space-between;margin-top:2px;font-size:10px;color:var(--ink-mute)}
+    .sticker, .sticker-text, .g-orbit { pointer-events: none; }
+    /* cometa vive na sarjeta externa; só aparece quando existe margem de sobra */
+    .g-comet { bottom: 14%; left: calc((100vw - var(--max)) / 2 - 64px); }
+    @media (max-width: 1420px) { .g-comet { display: none; } }
+    .g-orbit { position: absolute; inset: -8%; border: 1.5px dashed var(--line); border-radius: 50%; z-index: 0; }
+
+    .g-about { padding: clamp(50px,7vw,90px) 0; border-top: 1px solid var(--line); position: relative; }
+    .g-about-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: clamp(30px,5vw,64px); }
+    .g-about h2 { font-family: var(--serif); font-size: clamp(26px,3.4vw,38px); line-height: 1.1; }
+    .g-about .body p { font-family: var(--sans); font-size: 15px; line-height: 1.7; color: var(--ink-soft); margin-bottom: 16px; max-width: 540px; }
+    .g-about .body p strong { color: var(--ink); font-weight: 600; }
+
+    .g-projects { padding: clamp(50px,7vw,90px) 0; border-top: 1px solid var(--line); position: relative; }
+    .g-proj-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+    .contact-note { max-width: 560px; margin: 18px auto 0; text-align: left; font-family: var(--sans); font-size: 13.5px; line-height: 1.6; color: #5d564c; }
+    .contact-note strong { color: #2a2520; font-weight: 600; }
+    .contact-note a { color: #973a22; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; }
+    .contact-note a:hover { color: #7a2d18; }
+    .g-contact { padding: clamp(50px,7vw,90px) var(--pad); position: relative; }
+    @media (max-width: 860px) {
+      .g-hero-grid, .g-about-grid { grid-template-columns: 1fr; }
+      .g-portrait-wrap { order: -1; }
+      .g-proj-grid { grid-template-columns: 1fr; }
+    }
+
+    /* CV MODAL */
+    .cv-modal { position: fixed; inset: 0; z-index: 200; display: none; }
+    .cv-modal.open { display: block; }
+    .cv-modal-backdrop { position: absolute; inset: 0; background: rgba(8,8,11,0.74); backdrop-filter: blur(6px); animation: cvFade 0.3s var(--ease); }
+    .cv-modal-card { position: absolute; top: clamp(14px,4vh,46px); bottom: clamp(14px,4vh,46px); left: 50%; transform: translateX(-50%); width: min(94vw, 842px); background: var(--bg-2); border: 1px solid var(--line); border-radius: 18px; overflow: hidden; display: flex; flex-direction: column; box-shadow: 0 40px 100px rgba(0,0,0,0.6); animation: cvRise 0.35s var(--ease); }
+    .cv-modal-bar { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 13px 16px 13px 22px; border-bottom: 1px solid var(--line); background: var(--bg); }
+    .cv-modal-title { font-family: var(--chunk); font-size: 12px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink-soft); }
+    .cv-modal-actions { display: flex; align-items: center; gap: 12px; }
+    .cv-modal-close { width: 38px; height: 38px; border-radius: 50%; border: 1px solid var(--line); background: transparent; color: var(--ink-soft); font-size: 14px; cursor: pointer; display: grid; place-items: center; transition: border-color 0.2s, color 0.2s; }
+    .cv-modal-close:hover { border-color: var(--coral); color: var(--coral); }
+    .cv-modal iframe { flex: 1; width: 100%; border: 0; background: #fff; display: block; }
+    @media (max-width: 700px) { .cv-modal-card { width: 96vw; } .cv-modal-bar { padding: 11px 12px 11px 16px; } }
+    @keyframes cvFade { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes cvRise { from { opacity: 0; transform: translateX(-50%) translateY(16px); } to { opacity: 1; transform: translateX(-50%); } }
+    @media (prefers-reduced-motion: reduce) {
+      .avail .dot, .contact-paper .blink, .g-orbit.float, .sticker.float { animation: none !important; }
+      .cv-modal-backdrop, .cv-modal-card { animation: none !important; }
+      *, *::before, *::after { scroll-behavior: auto !important; }
+    }
+  </style>
+</head>
+<body data-immersive="x">
+
+<!-- NAV -->
+<nav class="nav">
+  <a class="brand" href="index.html" aria-label="Emerson Siqueira">Emerson<span class="brand-spark" aria-hidden="true"><svg viewBox="0 0 24 24"><path class="tw" d="M12 0c.7 6.3 5.4 11 11.7 11.7C17.4 12.4 12.7 17.1 12 23.4 11.3 17.1 6.6 12.4 .3 11.7 6.6 11 11.3 6.3 12 0z" fill="var(--coral)"/></svg></span></a>
+  <div class="nav-links">
+    <a href="#sobre" data-i18n="nav.about">Sobre mim</a>
+    <a href="#projetos" data-i18n="nav.projects" hidden style="display:none">Projetos</a>
+    <a href="#habilidades" data-i18n="nav.skills">Habilidades</a>
+    <a href="#contato" data-i18n="nav.contact">Contate-me</a>
+  </div>
+  <div class="nav-right">
+    <button type="button" class="sfx-btn px-notch" id="sfxBtn" aria-pressed="false" title="Som da interface" aria-label="Ligar som da interface">
+      <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 6h2l3-3v10L4 10H2z" fill="currentColor"/><g class="wave"><path d="M10 5v6M13 3.5v9" stroke="currentColor" stroke-width="1.6" fill="none"/></g><g class="mute"><path d="M10 5.5l4 5M14 5.5l-4 5" stroke="currentColor" stroke-width="1.6" fill="none"/></g></svg>
+    </button>
+    <a class="btn btn-mint" href="#contato" data-i18n="nav.cta">Fale comigo</a>
+    <div class="lang-switch" id="langSwitch">
+      <button class="lang-btn" id="langBtn" aria-haspopup="true" aria-expanded="false" aria-label="Idioma">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        <span id="langCur">PT</span>
+        <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="width:11px;height:11px;"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+      <div class="lang-menu" id="langMenu" role="menu">
+        <button data-lang="pt" role="menuitem">Português <span class="code">PT</span></button>
+        <button data-lang="en" role="menuitem">English <span class="code">EN</span></button>
+        <button data-lang="es" role="menuitem">Español <span class="code">ES</span></button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="g-hero" id="hero" data-hv="c">
+  <div class="wrap g-hero-grid">
+    <div>
+      <span class="avail"><span class="dot" aria-hidden="true"></span><span data-i18n="hero.avail">Belo Horizonte &amp; Rio · Remoto e internacional</span></span>
+      <h1 style="margin-top:20px;" data-i18n="hero.title">Desenho experiências que <span class="em-ink">fazem sentido</span> e funcionam de verdade</h1>
+      <p class="lead hv-short" data-i18n="hero.leadShort">Product Designer há 6 anos, com pós em IHC e UX pela PUC-Rio. Da pesquisa à entrega: método, protótipo e métricas reais.</p>
+      <p class="lead hv-long" data-i18n="hero.lead">Product Designer com 6 anos de estrada em educação, saúde e fintech. Da pesquisa à entrega: método, protótipo e métricas reais, com uma boa dose de cinema, games e narrativa no caminho.</p>
+      <div class="domains">
+        <span class="domain" data-i18n="hero.d1">Educação</span>
+        <span class="domain" data-i18n="hero.d2">Saúde</span>
+        <span class="domain" data-i18n="hero.d3">Fintech</span>
+      </div>
+      <div class="g-hero-ctas" style="margin-top:30px;">
+        <a class="btn btn-mint" href="#contato" data-i18n="nav.contact">Contate-me</a>
+        <a class="btn btn-ghost js-open-cv" href="cv.html" data-i18n="hero.cta2">Ver currículo</a>
+      </div>
+      <p class="hv-meta">Pós em IHC e UX · PUC-Rio · Bacharel em Design</p>
+      <span class="hv-eyebrow">Product Designer · UX/UI</span>
+    </div>
+    <div class="g-portrait-wrap">
+      <div class="g-orbit float" style="--rot:0deg;"></div>
+      <div class="g-portrait">
+        <div class="av-stage" id="avStage" role="img" aria-label="Avatar do Emerson — clique para trocar a expressão">
+          <div class="av-shadow"></div>
+          <div class="av-head" id="avHead">
+            <img class="on" data-mood="sorriso" src="assets/avatar/a.png?v=2" alt="" draggable="false" />
+            <img data-mood="serio" src="assets/avatar/b.png?v=2" alt="" draggable="false" />
+            <img data-mood="debochado" src="assets/avatar/e.png?v=2" alt="" draggable="false" />
+            <img data-mood="apaixonado" src="assets/avatar/d.png?v=2" alt="" draggable="false" />
+            <img data-mood="bravo" src="assets/avatar/c.png?v=2" alt="" draggable="false" />
+            <div class="av-sheen" id="avSheen"></div>
+          </div>
+        </div>
+      </div>
+      <div class="av-ctl" id="avMoods" data-style="d" role="group" aria-label="Expressão do avatar">
+        <div class="av-a"><button type="button" class="av-arrow px-notch" data-d="-1" aria-label="Anterior">&lt;</button><div class="av-a-name"><span class="av-cur"></span><div class="av-pips"></div></div><button type="button" class="av-arrow px-notch" data-d="1" aria-label="Próxima">&gt;</button></div>
+        <div class="av-b"><div class="av-b-lab"></div><div class="av-b-row"></div></div>
+        <div class="av-d"><div class="av-d-top"><span>Humor</span><b class="av-cur"></b></div><div class="av-d-track"><div class="av-d-rail"></div><div class="av-d-fill"></div><div class="av-d-knob px-notch"></div></div><div class="av-d-ends"><span>Bravo</span><span>Apaixonado</span></div></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+<!-- MARQUEE -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span class="marquee-item">Product Design</span><span class="marquee-item">Brand Design</span><span class="marquee-item">UX Research</span><span class="marquee-item">Daily UI</span><span class="marquee-item" data-i18n="marquee.illu">Ilustração</span>
+    <span class="marquee-item">Product Design</span><span class="marquee-item">Brand Design</span><span class="marquee-item">UX Research</span><span class="marquee-item">Daily UI</span><span class="marquee-item" data-i18n="marquee.illu">Ilustração</span>
+  </div>
+</div>
+
+<!-- CLIENTS -->
+<section class="wrap" style="padding: clamp(40px,5vw,64px) var(--pad);">
+  <p class="clients-label">Marcas com que trabalhei</p>
+  <div class="clients" data-rail="dots" data-rail-group="3">
+    <div class="client-logo" style="--h:48px"><img src="assets/business-1.png" alt="PUC Minas" /></div>
+    <div class="client-logo" style="--h:44px"><img src="assets/business-5.png" alt="Cervejaria Colorado" /></div>
+    <div class="client-logo" style="--h:38px"><img src="assets/business-4.png" alt="New Holland Agriculture" /></div>
+    <div class="client-logo" style="--h:26px"><img src="assets/business-3.png" alt="IVECO" /></div>
+    <div class="client-logo" style="--h:34px"><img src="assets/business-2.png" alt="Corona" /></div>
+  </div>
+</section>
+
+<!-- ABOUT + STATS -->
+<section class="g-about" id="sobre">
+  <div class="wrap g-about-grid">
+    <div>
+      <span class="eyebrow" data-i18n="about.eyebrow">Sobre mim</span>
+      <h2 style="margin:18px 0 26px;" data-i18n="about.title">Olá, sou o Emerson, designer UX/UI e Product Designer em Belo Horizonte.</h2>
+      <div class="stats">
+        <div class="stat"><div class="n">6<span class="u">+</span></div><div class="l" data-i18n="stat.years">Anos de experiência</div></div>
+        <div class="stat"><div class="n">3K<span class="u">+</span></div><div class="l" data-i18n="stat.hours">Horas de estudo</div></div>
+        <div class="stat"><div class="n">50<span class="u">+</span></div><div class="l" data-i18n="stat.projects">Projetos finalizados</div></div>
+        <div class="stat"><div class="n">15<span class="u">+</span></div><div class="l" data-i18n="stat.clients">Clientes atendidos</div></div>
+      </div>
+    </div>
+    <div class="body">
+      <p data-i18n="about.p1">Minha trajetória começou no <strong>design gráfico</strong>, explorando linguagem visual, composição e narrativa. Ajudando amigos e microempreendedores, o passatempo virou ofício.</p>
+      <p data-i18n="about.p2">Desde 2020 me especializo em <strong>UX/UI e Product Design</strong>, em produtos de educação, instituições públicas, universidades e verticais digitais. Acredito que clareza é a forma mais alta de cuidado com quem usa.</p>
+      <p data-i18n="about.p3">Fora da tela, sou movido por <strong>cinema, games e fantasia</strong>, e isso vaza pro meu trabalho: gosto de interfaces com personalidade, ritmo e um toque de encanto.</p>
+      <a class="btn btn-ghost" href="cv.html" id="openCv" style="margin-top:10px;" data-i18n="about.cv">Ver currículo completo</a>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<!-- oculto até os cases ficarem prontos: remova hidden + style para reativar -->
+<section class="g-projects" id="projetos" hidden style="display:none">
+  <div class="wrap">
+    <div class="sec-head-v2" style="position:relative;">
+      <div>
+        <span class="eyebrow" data-i18n="proj.eyebrow">Projetos</span>
+        <h2 class="sec-title-v2" style="margin-top:14px;" data-i18n="proj.title">Três cases, do problema à <span class="em-ink">entrega</span></h2>
+      </div>
+    </div>
+    <div class="g-proj-grid m-rail" data-rail="dots">
+      <a class="proj-card px-notch" href="cases/stenio.html">
+        <div class="proj-thumb" style="background-image:url('assets/stenio/about-shop.webp');"></div>
+        <div class="proj-body">
+          <h3>Landing Page Stenio's Barbearia</h3>
+          <div class="proj-tags"><span class="proj-tag">Design</span><span class="proj-tag">Front-end</span></div>
+          <div class="proj-facts">
+            <div class="proj-fact"><span class="k">Papel</span><span class="v">Designer e front-end</span></div>
+            <div class="proj-fact"><span class="k">Escopo</span><span class="v">Brand, UI e código</span></div>
+          </div>
+          <span class="proj-more">Ver case <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13"/><path d="m12 5 7 7-7 7"/></svg></span>
+        </div>
+      </a>
+      <a class="proj-card px-notch" href="cases/medroom.html">
+        <div class="proj-thumb" style="background:linear-gradient(135deg,#0052F7,#1656F0);display:grid;place-items:center;">
+          <span style="font-family:var(--chunk);font-weight:800;font-size:30px;color:#fff;letter-spacing:-0.02em;">MedRoom</span>
+        </div>
+        <div class="proj-body">
+          <h3 data-i18n="card2.title">Console Administrativo</h3>
+          <div class="proj-tags"><span class="proj-tag">Dados</span><span class="proj-tag">UX/UI</span><span class="proj-tag">Front-end</span></div>
+          <div class="proj-facts">
+            <div class="proj-fact"><span class="k">Papel</span><span class="v">Product Designer</span></div>
+            <div class="proj-fact"><span class="k">Escopo</span><span class="v">Dados, UX/UI e front-end</span></div>
+          </div>
+          <span class="proj-more">Ver case <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13"/><path d="m12 5 7 7-7 7"/></svg></span>
+        </div>
+      </a>
+      <a class="proj-card px-notch" href="cases/pesquisa-residentes.html">
+        <div class="proj-thumb" style="background:var(--bg-3);display:grid;place-items:center;">
+          <span class="it" style="font-size:26px;color:var(--lilac);text-align:center;line-height:1.2;" data-i18n="card3.thumb">Pesquisa<br/>com usuários</span>
+        </div>
+        <div class="proj-body">
+          <h3 data-i18n="card3.title">Médicos residentes</h3>
+          <div class="proj-tags"><span class="proj-tag">UX Research</span><span class="proj-tag">Personas</span></div>
+          <div class="proj-facts">
+            <div class="proj-fact"><span class="k">Papel</span><span class="v">UX Researcher</span></div>
+            <div class="proj-fact"><span class="k">Escopo</span><span class="v">Entrevistas e síntese</span></div>
+          </div>
+          <span class="proj-more">Ver case <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h13"/><path d="m12 5 7 7-7 7"/></svg></span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- SKILL TREE -->
+<section class="g-tree" id="habilidades">
+  <div class="wrap" style="position:relative;">
+    <div class="sec-head-v2" style="justify-content:center;text-align:center;">
+      <div>
+        <span class="eyebrow" data-i18n="tree.eyebrow" style="justify-content:center;">Habilidades</span>
+        <h2 class="sec-title-v2" style="margin-top:14px;" data-i18n="tree.title">O que eu levo na <span class="em-ink">mochila</span></h2>
+      </div>
+    </div>
+    <div class="skill-tabs" id="skill-tabs"></div>
+    <div class="skill-cols" data-rail="tabs" data-rail-nav="#skill-tabs">
+      <div class="skill-col">
+        <h3 data-i18n="tree.b1">Pesquisa &amp; dados</h3>
+        <ul class="skill-list">
+          <li data-i18n="tree.b1n1"><b>Entrevistas e testes de usabilidade</b>Roteiro, condução e síntese</li>
+          <li data-i18n="tree.b1n2"><b>Auditoria heurística</b>Nielsen, acessibilidade e consistência</li>
+          <li data-i18n="tree.b1n3"><b>Personas e jornadas</b>Construídas a partir de campo</li>
+          <li data-i18n="tree.b1n4"><b>Quanti + quali</b>Teste A/B, funil e métricas</li>
+        </ul>
+      </div>
+      <div class="skill-col">
+        <h3 data-i18n="tree.b2">Interface</h3>
+        <ul class="skill-list">
+          <li data-i18n="tree.b2n1"><b>Design systems</b>Componentes, tokens e documentação</li>
+          <li data-i18n="tree.b2n2"><b>Prototipagem</b>Baixa e alta fidelidade</li>
+          <li data-i18n="tree.b2n3"><b>Responsivo</b>Desktop, tablet e mobile</li>
+          <li data-i18n="tree.b2n4"><b>Acessibilidade</b>WCAG e design inclusivo</li>
+        </ul>
+      </div>
+      <div class="skill-col">
+        <h3 data-i18n="tree.b3">Entrega</h3>
+        <ul class="skill-list">
+          <li data-i18n="tree.b3n1"><b>Figma, FigJam, Framer</b>Miro para colaboração</li>
+          <li data-i18n="tree.b3n2"><b>Front-end</b>HTML, CSS e handoff com dev</li>
+          <li data-i18n="tree.b3n3"><b>Agile / Scrum</b>Rituais e trabalho junto do time</li>
+          <li class="soon" data-i18n="tree.b3n4"><b>Motion e 3D</b>Em treinamento</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="g-contact" id="contato">
+  <div class="wrap" style="position:relative;">
+    <div class="tape" style="top:-13px;left:50%;transform:translateX(-50%) rotate(-3deg);z-index:3;"></div>
+    <div class="contact-paper px-notch">
+      <div class="px-nail tl"></div><div class="px-nail tr"></div><div class="px-nail bl"></div><div class="px-nail br"></div>
+      <span class="quest-label" data-i18n="contact.quest">✦ QUADRO DE MISSÕES ✦</span>
+      <h2><span class="type-rot" id="typeRot">MANDA JOBS</span><span class="blink" aria-hidden="true">|</span></h2>
+      <form class="contact-form" id="contactForm" action="https://formsubmit.co/ajax/emersonsiqueira@live.com" method="POST" novalidate>
+        <div class="contact-field"><label for="cf-name" data-i18n="form.name">Seu nome</label><input id="cf-name" name="Nome" type="text" autocomplete="given-name" required data-i18n-ph="form.name.ph" placeholder="Insira seu nome" /></div>
+        <div class="contact-field"><label for="cf-last" data-i18n="form.last">Sobrenome</label><input id="cf-last" name="Sobrenome" type="text" autocomplete="family-name" data-i18n-ph="form.last.ph" placeholder="Seu sobrenome" /></div>
+        <div class="contact-field full"><label for="cf-email" data-i18n="form.email">E-mail</label><input id="cf-email" name="email" type="email" autocomplete="email" required data-i18n-ph="form.email.ph" placeholder="voce@email.com" /></div>
+        <div class="contact-field full"><label for="cf-msg" data-i18n="form.msg">Mensagem</label><textarea id="cf-msg" name="Mensagem" rows="3" required data-i18n-ph="form.msg.ph" placeholder="Conta sua ideia…"></textarea></div>
+        <input type="hidden" name="_subject" value="Novo contato pelo portfólio" />
+        <input type="hidden" name="_template" value="table" />
+        <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true" />
+      </form>
+      <div style="margin-top:30px;"><button class="btn btn-coral" type="submit" form="contactForm" id="contactSubmit" data-i18n="form.send">Enviar mensagem</button></div>
+      <div class="form-status" id="formStatus" role="status" aria-live="polite"></div>
+      <p class="contact-note" data-i18n="contact.note">A mensagem cai direto no meu e-mail — <strong>emersonsiqueira@live.com</strong> — e eu respondo por lá. Se preferir, me chama no <a href="https://www.linkedin.com/in/emesiqueira" target="_blank" rel="noopener">LinkedIn</a> ou no <a href="https://www.behance.net/emesiqueira" target="_blank" rel="noopener">Behance</a>.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="foot-v2">
+  <div class="wrap">
+    <div class="foot-v2-row">
+      <div>
+        <div class="name"><span class="brand-emk">Emerson</span> Siqueira</div>
+        <div class="role" data-i18n="foot.role">UX/UI Designer · Product Designer</div>
+        <div class="socials">
+          <a class="social" href="https://www.linkedin.com/in/emesiqueira" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.852 3.37-1.852 3.601 0 4.267 2.37 4.267 5.455v6.288zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+          <a class="social" href="https://github.com/emesiqueira" target="_blank" rel="noopener" aria-label="GitHub">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+          </a>
+          <a class="social" href="https://www.behance.net/emesiqueira" target="_blank" rel="noopener" aria-label="Behance">
+            <svg viewBox="0.5 94.187 511 323.626" fill="currentColor" aria-hidden="true"><path d="M206.729 238.87s48.358-3.59 48.358-60.297c0-56.711-39.563-84.387-89.678-84.387H.5v316.909h164.909s100.671 3.18 100.671-93.537c0 .001 4.389-78.688-59.351-78.688zm-53.19-88.357h11.87s22.416 0 22.416 32.973c0 32.969-13.183 37.749-28.136 37.749H73.161v-70.722h80.378zm7.21 204.257H73.161v-84.69h92.248s33.41-.438 33.41 43.522c0 37.068-24.954 40.888-38.07 41.168zm239.593-179.953c-121.873 0-121.765 121.766-121.765 121.766s-8.362 121.141 121.765 121.141c0 0 108.438 6.195 108.438-84.271h-55.768s1.86 34.068-50.81 34.068c0 0-55.777 3.738-55.777-55.135H510.64c0-.001 17.968-137.569-110.298-137.569zm-54.53 95.263s6.81-48.846 55.769-48.846c48.949 0 48.336 48.846 48.336 48.846H345.812zm117.096-118.199H332.159v-39.025h130.749v39.025z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="foot-right">
+        <button class="mail-copy" id="mailCopy" type="button" data-mail="emersonsiqueira@live.com" aria-label="Copiar e-mail: emersonsiqueira@live.com">
+          <svg class="mail-ico-left" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2.5"/><path d="m3 6.5 9 6 9-6"/></svg>
+          <span class="mail-text">emersonsiqueira@live.com</span>
+          <span class="mail-ico-act" aria-hidden="true">
+            <svg class="ico-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="11" rx="2.4"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            <svg class="ico-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <span class="mail-tip" id="mailTip">Copiar</span>
+          </span>
+        </button>
+      </div>
+    </div>
+    <div class="copy" data-i18n="foot.copy">© 2026 Emerson Siqueira · UX/UI &amp; Product Designer</div>
+  </div>
+</footer>
+
+<!-- CV MODAL -->
+<div class="cv-modal" id="cvModal" aria-hidden="true">
+  <div class="cv-modal-backdrop" data-close></div>
+  <div class="cv-modal-card" role="dialog" aria-modal="true" aria-label="Currículo de Emerson Siqueira">
+    <div class="cv-modal-bar">
+      <span class="cv-modal-title">Currículo · Emerson Siqueira</span>
+      <div class="cv-modal-actions">
+        <button class="btn btn-mint" id="cvPrint" type="button">Baixar PDF</button>
+        <button class="cv-modal-close" data-close type="button" aria-label="Fechar">✕</button>
+      </div>
+    </div>
+    <iframe id="cvFrame" title="Currículo de Emerson Siqueira" src="about:blank"></iframe>
+  </div>
+</div>
+
+<script defer src="scripts/immersive.js?v=2"></script>
+<script src="scripts/i18n.js?v=3"></script>
+<script src="scripts/typerot.js?v=2"></script>
+<script src="scripts/rails.js?v=1"></script>
+<script>
+(function(){
+  var stage=document.getElementById('avStage'),head=document.getElementById('avHead'),sheen=document.getElementById('avSheen'),moods=document.getElementById('avMoods');
+  if(!stage)return;
+  var imgs=head.querySelectorAll('img'),order=[].map.call(imgs,function(i){return i.dataset.mood});
+  function setMood(m){imgs.forEach(function(i){i.classList.toggle('on',i.dataset.mood===m);if(i.dataset.mood===m){var u='url('+i.getAttribute('src')+')';sheen.style.webkitMaskImage=u;sheen.style.maskImage=u;}});if(window.__avSync)__avSync(m);}
+  (function(){
+    var M=[['bravo','Bravo','c'],['serio','Sério','b'],['debochado','Debochado','e'],['sorriso','Sorriso','a'],['apaixonado','Apaixonado','d']],N=M.length,keys=M.map(function(x){return x[0]}),idx=3;
+    var curs=moods.querySelectorAll('.av-cur'),pips=moods.querySelector('.av-pips'),row=moods.querySelector('.av-b-row'),lab=moods.querySelector('.av-b-lab'),tr=moods.querySelector('.av-d-track'),kn=moods.querySelector('.av-d-knob'),fill=moods.querySelector('.av-d-fill');
+    M.forEach(function(m,j){pips.appendChild(document.createElement('i'));var b=document.createElement('button');b.type='button';b.className='av-slot px-notch';b.setAttribute('aria-label',m[1]);b.innerHTML='<img src="assets/avatar/'+m[2]+'.png" alt="">';b.onclick=function(){go(j)};b.onmouseenter=function(){lab.textContent=m[1]};b.onmouseleave=function(){lab.textContent=M[idx][1]};row.appendChild(b);if(j&&j<N-1){var s=document.createElement('div');s.className='av-d-stop';s.style.left=(j/(N-1)*100)+'%';tr.insertBefore(s,kn)}});
+    function pos(p){kn.style.left=p*100+'%';fill.style.width=p*100+'%'}
+    function go(j){setMood(keys[(j+N)%N])}
+    window.__avSync=function(m){idx=keys.indexOf(m);curs.forEach(function(c){c.textContent=M[idx][1]});lab.textContent=M[idx][1];pips.querySelectorAll('i').forEach(function(p,j){p.classList.toggle('on',j===idx)});row.querySelectorAll('.av-slot').forEach(function(s,j){s.classList.toggle('on',j===idx)});if(!tr.classList.contains('drag'))pos(idx/(N-1))};
+    moods.querySelectorAll('.av-arrow').forEach(function(b){b.onclick=function(){go(idx+ +b.dataset.d)}});
+    function mv(e){var r=tr.getBoundingClientRect(),p=Math.max(0,Math.min(1,(e.clientX-r.left)/r.width));pos(p);var n=Math.round(p*(N-1));if(n!==idx)go(n)}
+    tr.onpointerdown=function(e){tr.classList.add('drag');tr.setPointerCapture(e.pointerId);mv(e)};tr.onpointermove=function(e){if(tr.classList.contains('drag'))mv(e)};tr.onpointerup=tr.onpointercancel=function(){tr.classList.remove('drag');pos(idx/(N-1))};
+    moods.dataset.style='d';
+  })();
+  setMood('sorriso');
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var ry=0,rx=0,vy=0,vx=0,ty=0,tx=0,drag=null,moved=false;
+  document.addEventListener('pointermove',function(e){if(drag)return;var r=stage.getBoundingClientRect();var cx=r.left+r.width/2,cy=r.top+r.height/2;ty=Math.max(-1,Math.min(1,(e.clientX-cx)/(innerWidth/2)))*9;tx=Math.max(-1,Math.min(1,(e.clientY-cy)/(innerHeight/2)))*-6;});
+  stage.addEventListener('pointerdown',function(e){drag={x:e.clientX,y:e.clientY,ry:ry,rx:rx};moved=false;stage.classList.add('drag');stage.setPointerCapture(e.pointerId)});
+  stage.addEventListener('pointermove',function(e){if(!drag)return;var dx=e.clientX-drag.x,dy=e.clientY-drag.y;if(Math.abs(dx)+Math.abs(dy)>4)moved=true;ty=0;tx=0;});
+  function end(){if(!drag)return;drag=null;stage.classList.remove('drag');ty=0;tx=0;if(!moved){var cur=head.querySelector('img.on').dataset.mood;setMood(order[(order.indexOf(cur)+1)%order.length]);}}
+  stage.addEventListener('pointerup',end);stage.addEventListener('pointercancel',end);
+  if(reduce){head.style.transform='translate(-50%,-50%)';return;}
+  (function tick(t){var k=.04,d=.86;vy=(vy+(ty-ry)*k)*d;vx=(vx+(tx-rx)*k)*d;ry+=vy;rx+=vx;var bob=Math.sin((t||0)/1400)*4;
+    head.style.transform='translate(calc(-50% + '+(ry*.5).toFixed(2)+'px), calc(-50% + '+(bob-rx*.5).toFixed(2)+'px))';
+    sheen.style.setProperty('--sx',(50-ry*1.2)+'%');sheen.style.setProperty('--sy',(30+rx*1.2)+'%');
+    requestAnimationFrame(tick);})();
+})();
+</script>
+<script>
+  const io = new IntersectionObserver((es)=>es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} }), {threshold:0.12});
+  document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+
+  // CV modal
+  (function(){
+    const modal = document.getElementById('cvModal');
+    const frame = document.getElementById('cvFrame');
+    const openBtns = document.querySelectorAll('#openCv, .js-open-cv');
+    let loaded = false;
+    function open(e){ if(e) e.preventDefault(); var lg='pt'; try{ lg=localStorage.getItem('emerson-lang')||'pt'; }catch(_){} if(loaded!==lg){ frame.src = 'cv.html?embed=1&lang='+lg; loaded = lg; } modal.classList.add('open'); modal.setAttribute('aria-hidden','false'); document.body.style.overflow = 'hidden'; }
+    function close(){ modal.classList.remove('open'); modal.setAttribute('aria-hidden','true'); document.body.style.overflow = ''; }
+    openBtns.forEach(b=>b.addEventListener('click', open));
+    modal.querySelectorAll('[data-close]').forEach(el=>el.addEventListener('click', close));
+    const printBtn = document.getElementById('cvPrint');
+    if(printBtn) printBtn.addEventListener('click', ()=>{ try{ frame.contentWindow.focus(); frame.contentWindow.print(); }catch(_){ window.open('cv.html?print=1&lang='+(localStorage.getItem('emerson-lang')||'pt'),'_blank'); } });
+    document.addEventListener('keydown', e=>{ if(e.key==='Escape' && modal.classList.contains('open')) close(); });
+  })();
+
+  // Contact form — sends to emersonsiqueira@live.com via FormSubmit (AJAX)
+  (function(){
+    const form = document.getElementById('contactForm');
+    const btn = document.getElementById('contactSubmit');
+    const status = document.getElementById('formStatus');
+    if(!form || !btn) return;
+    const t = (k)=> (window.I18N ? window.I18N.t(k) : k);
+    const btnDefault = btn.innerHTML;
+    function setStatus(kind, key){
+      status.className = 'form-status show ' + (kind || '');
+      status.textContent = t(key);
+    }
+    form.addEventListener('submit', async (e)=>{
+      e.preventDefault();
+      if(form._honey && form._honey.value) return; // bot trap
+      if(!form.checkValidity()){
+        form.querySelectorAll('input,textarea').forEach(el=>{
+          const f = el.closest('.contact-field');
+          if(f) f.classList.toggle('invalid', !el.checkValidity());
+        });
+        setStatus('err', 'form.fill');
+        const firstBad = form.querySelector(':invalid');
+        if(firstBad) firstBad.focus();
+        return;
+      }
+      btn.disabled = true;
+      btn.innerHTML = t('form.sending');
+      status.className = 'form-status';
+      try {
+        const res = await fetch(form.action, {
+          method: 'POST',
+          headers: { 'Accept': 'application/json' },
+          body: new FormData(form)
+        });
+        if(!res.ok) throw new Error('bad status ' + res.status);
+        setStatus('ok', 'form.ok');
+        form.reset();
+        form.querySelectorAll('.contact-field.invalid').forEach(f=>f.classList.remove('invalid'));
+      } catch(err){
+        setStatus('err', 'form.err');
+      } finally {
+        btn.disabled = false;
+        btn.innerHTML = btnDefault;
+      }
+    });
+    form.querySelectorAll('input,textarea').forEach(el=>{
+      el.addEventListener('input', ()=>{ const f = el.closest('.contact-field'); if(f) f.classList.remove('invalid'); });
+    });
+  })();
+
+  // Som da interface — desligado por padrão; a escolha do visitante persiste
+  (function(){
+    const btn = document.getElementById('sfxBtn');
+    if(!btn) return;
+    let on = false, ctx = null;
+    on = true; try { on = localStorage.getItem('em-sfx-v2') !== 'off'; } catch(_){}
+    const paint = () => { btn.setAttribute('aria-pressed', on ? 'true' : 'false'); btn.setAttribute('aria-label', on ? 'Desligar som da interface' : 'Ligar som da interface'); };
+    paint();
+    function bleep(freq, dur, vol){
+      if(!on) return;
+      try {
+        ctx = ctx || new (window.AudioContext || window.webkitAudioContext)();
+        if(ctx.state === 'suspended') ctx.resume();
+        const o = ctx.createOscillator(), g = ctx.createGain();
+        o.type = 'square'; o.frequency.value = freq;
+        g.gain.setValueAtTime(0, ctx.currentTime);
+        g.gain.linearRampToValueAtTime(vol, ctx.currentTime + 0.006);
+        g.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + dur);
+        o.connect(g); g.connect(ctx.destination);
+        o.start(); o.stop(ctx.currentTime + dur + 0.02);
+      } catch(_){}
+    }
+    btn.addEventListener('click', () => {
+      on = !on;
+      try { localStorage.setItem('em-sfx-v2', on ? 'on' : 'off'); } catch(_){}
+      paint();
+      if(on) bleep(880, 0.09, 0.05);
+    });
+    document.querySelectorAll('.proj-card, .btn, .nav-links a').forEach(el => {
+      el.addEventListener('pointerenter', () => bleep(1320, 0.035, 0.022));
+    });
+    document.querySelectorAll('.btn, .proj-card').forEach(el => {
+      el.addEventListener('click', () => bleep(660, 0.07, 0.04));
+    });
+  })();
+
+  // Footer email — copy to clipboard
+  (function(){
+    const el = document.getElementById('mailCopy');
+    const tip = document.getElementById('mailTip');
+    if(!el || !tip) return;
+    const t = (k)=> (window.I18N ? window.I18N.t(k) : k);
+    let resetTimer = null;
+    function refreshTip(){ if(!el.classList.contains('copied')) tip.textContent = t('copy.tip'); }
+    document.addEventListener('i18n:change', refreshTip);
+    refreshTip();
+    async function writeClipboard(text){
+      if(navigator.clipboard && navigator.clipboard.writeText && window.isSecureContext){
+        try { await navigator.clipboard.writeText(text); return true; } catch(_){}
+      }
+      try {
+        const ta = document.createElement('textarea');
+        ta.value = text; ta.setAttribute('readonly','');
+        ta.style.cssText = 'position:fixed;top:0;left:0;width:1px;height:1px;opacity:0;';
+        document.body.appendChild(ta);
+        const sel = document.getSelection(); const prev = sel && sel.rangeCount ? sel.getRangeAt(0) : null;
+        ta.focus(); ta.select(); ta.setSelectionRange(0, text.length);
+        const ok = document.execCommand('copy');
+        ta.remove();
+        if(prev && sel){ sel.removeAllRanges(); sel.addRange(prev); }
+        return !!ok;
+      } catch(_){ return false; }
+    }
+    async function copy(){
+      const mail = el.getAttribute('data-mail');
+      const ok = await writeClipboard(mail);
+      el.classList.add('copied');
+      tip.textContent = ok ? t('copy.done') : t('copy.fail');
+      if(!ok){ window.location.href = 'mailto:' + mail; }
+      clearTimeout(resetTimer);
+      resetTimer = setTimeout(()=>{ el.classList.remove('copied'); refreshTip(); }, 2200);
+    }
+    el.addEventListener('click', copy);
+  })();
+</script>
+</body>
+</html>

@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="MedRoom Console Administrativo — Dashboard de engajamento B2C e B2B. Case de análise de dados, design e front-end por Emerson Siqueira." />
+  <meta name="theme-color" content="#121012" />
+  <title>MedRoom Console Administrativo — Dashboard de engajamento — Emerson Siqueira</title>
+
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="../assets/favicon.svg" />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Emerson Siqueira" />
+  <meta property="og:locale" content="pt_BR" />
+  <meta property="og:title" content="MedRoom — Console Administrativo" />
+  <meta property="og:description" content="Dashboard de engajamento B2C e B2B para simulação médica em VR. Case por Emerson Siqueira." />
+  <meta property="og:image" content="../assets/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="../assets/og-image.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Bricolage+Grotesque:opsz,wght@12,600;12,700;12,800&family=Manrope:wght@300;400;500;600;700&family=Silkscreen:wght@400;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="../styles/portfolio-v2.css?v=28" />
+  <link rel="stylesheet" href="case.css?v=12" />
+  <link rel="stylesheet" href="medroom.css?v=2" />
+</head>
+<body class="case-page mr-scope">
+
+<!-- ============ BACK LINK BAR ============ -->
+<div class="case-back">
+  <div class="case-back-inner">
+    <a class="case-exit" href="../index.html#projetos">
+      <span class="arrow-back" aria-hidden="true"></span>
+      <span class="case-exit-wm">Emerson<span class="brand-spark" aria-hidden="true"><svg viewBox="0 0 24 24"><path class="tw" d="M12 0c.7 6.3 5.4 11 11.7 11.7C17.4 12.4 12.7 17.1 12 23.4 11.3 17.1 6.6 12.4 .3 11.7 6.6 11 11.3 6.3 12 0z" fill="currentColor"/></svg></span></span>
+      <span class="case-exit-sub">Portfólio</span>
+    </a>
+    <span class="case-back-meta">Case 02 de 03 · MedRoom</span>
+    <a class="case-next" href="pesquisa-residentes.html">
+      <span class="case-next-k">Próximo case</span>
+      <span class="case-next-v">Pesquisa com residentes<span class="arrow-ne" aria-hidden="true"></span></span>
+    </a>
+  </div>
+  <div class="case-progress" aria-hidden="true"><i id="caseProgress"></i></div>
+</div>
+
+<!-- ============ HERO ============ -->
+<header class="case-hero">
+  <div class="case-hero-inner">
+    <p class="case-hero-eyebrow">Case 02 — 2026</p>
+    <h1>MedRoom<img class="case-h1-star" src="../assets/stickers/px-star-coral.svg" alt="" aria-hidden="true" /></h1>
+    <p class="case-hero-tagline">Console administrativo de engajamento</p>
+    <p class="case-hero-sub">Dashboard para a equipe da MedRoom e instituições acompanharem o uso dos produtos de simulação médica em VR. Defini quais métricas entrariam, desenhei a interface e implementei o front-end com apoio de IA.</p>
+
+    <dl class="case-hero-meta">
+      <div><dt>Cliente</dt><dd>MedRoom · ecossistema Inspirali</dd></div>
+      <div><dt>Papel</dt><dd>Análise de dados · UX/UI · Front-end</dd></div>
+      <div><dt>Usuário</dt><dd>Gerência de produto + instituições B2B</dd></div>
+      <div><dt>Ferramentas</dt><dd>Figma · IA para front-end</dd></div>
+    </dl>
+
+    <div class="case-tldr">
+      <div class="case-tldr-lbl">O case em 30 segundos</div>
+      <div class="case-tldr-grid">
+        <div>
+          <h4>O problema</h4>
+          <p>O uso dos produtos de simulação em VR aparecia em planilhas e painéis separados. Nem a equipe de produto nem as instituições conseguiam responder se o engajamento estava subindo ou caindo.</p>
+        </div>
+        <div>
+          <h4>Meu papel</h4>
+          <p>Análise dos dados disponíveis, definição das métricas, desenho da interface e front-end do console — com apoio de IA na implementação.</p>
+        </div>
+        <div>
+          <h4>A decisão-chave</h4>
+          <p>Definir e validar cada indicador antes de desenhar qualquer tela: o que é, por que importa e como se calcula. Interface sem métrica acordada é enfeite.</p>
+        </div>
+        <div>
+          <h4>O resultado</h4>
+          <p>Um console com duas visões — produto (B2C) e instituições (B2B) — que vai da rede inteira ao detalhe de uma única instituição.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ============ COVER — dashboard B2C ============ -->
+<div class="case-cover" style="height:auto; padding: 56px var(--pad); background: radial-gradient(ellipse at top, rgba(0,82,247,0.08), transparent 60%), var(--bg); display:block;">
+  <div style="max-width: 1180px; margin: 0 auto;">
+    <div class="mr-window">
+      <div class="mr-chrome">
+        <div class="lights"><span></span><span></span><span></span></div>
+        <div class="url">console.medroom.com.br/dashboard</div>
+      </div>
+      <div class="mr-app">
+        <!-- SIDEBAR -->
+        <aside class="mr-side">
+          <div class="mr-side-logo">
+            <img src="../assets/medroom/logo-mark.svg" alt="MedRoom" />
+            <strong>MedRoom</strong>
+          </div>
+          <div class="mr-side-group">
+            <div class="mr-side-group-label">Console Administrativo</div>
+            <div class="mr-nav-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="9" cy="7" r="3"/><path d="M3 20a6 6 0 0 1 12 0"/><path d="M16 4a3 3 0 0 1 0 6"/><path d="M19 20a5 5 0 0 0-3-4.5"/></svg>
+              Usuários
+            </div>
+            <div class="mr-nav-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="1.5"/><path d="M8 16V11M12 16V8M16 16v-3"/></svg>
+              Instituições
+            </div>
+            <div class="mr-nav-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="8" cy="14" r="4"/><path d="M11 11l8-8M16 6l2 2M14 8l2 2"/></svg>
+              Licenças
+            </div>
+          </div>
+          <div class="mr-side-group">
+            <div class="mr-side-group-label">Análises</div>
+            <div class="mr-nav-item is-active">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M4 11l8-7 8 7"/><path d="M6 10v9h12v-9"/></svg>
+              Dashboard
+            </div>
+          </div>
+          <div class="mr-side-spacer"></div>
+          <div class="mr-side-bottom">
+            <div class="mr-side-group-label" style="padding-left:0;">Sistema</div>
+            <div class="mr-nav-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 0 1 4 1.8c0 1.5-2 1.7-2 3"/><circle cx="11.5" cy="17" r="0.6" fill="currentColor" stroke="none"/></svg>
+              Ajuda
+            </div>
+            <div class="mr-nav-item">
+              <span class="mr-avatar">E</span>
+              Perfil
+            </div>
+          </div>
+        </aside>
+
+        <!-- MAIN -->
+        <div class="mr-main">
+          <div class="mr-topbar">
+            <div class="mr-selector">
+              <span class="lbl">E-mail</span>
+              <span class="val">MedRoom Anatomy App <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span>
+            </div>
+            <div class="mr-period">
+              <button>7D</button>
+              <button class="is-active">30D</button>
+              <button>90D</button>
+              <button>2026</button>
+              <button>Personalizado</button>
+            </div>
+          </div>
+          <div class="mr-tabs">
+            <div class="mr-tab">Visão geral</div>
+            <div class="mr-tab">Instituições (B2B)</div>
+            <div class="mr-tab is-active">Usuários B2C</div>
+            <div class="mr-tab">Feedback e Qualidade</div>
+          </div>
+
+          <div class="mr-content">
+            <!-- KPIs -->
+            <div class="mr-kpis">
+              <div class="mr-kpi">
+                <div class="mr-kpi-top">
+                  <div class="mr-kpi-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M3 17l6-6 4 4 8-8"/><path d="M21 7v4h-4"/></svg></div>
+                  <svg class="mr-kpi-info" viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg>
+                </div>
+                <div class="mr-kpi-label">Crescimento da base</div>
+                <div class="mr-kpi-num">15%</div>
+                <span class="mr-badge up"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4"><path d="M5 19L19 5M19 5h-9M19 5v9"/></svg> Tendência positiva</span>
+              </div>
+              <div class="mr-kpi">
+                <div class="mr-kpi-top">
+                  <div class="mr-kpi-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="9" cy="7" r="3"/><path d="M3 20a6 6 0 0 1 12 0"/><path d="M17 11a3 3 0 0 0 0-6"/></svg></div>
+                  <svg class="mr-kpi-info" viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg>
+                </div>
+                <div class="mr-kpi-label">Usuários ativos</div>
+                <div class="mr-kpi-num">3.2k</div>
+                <span class="mr-badge up"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4"><path d="M5 19L19 5M19 5h-9M19 5v9"/></svg> +5%</span>
+              </div>
+              <div class="mr-kpi">
+                <div class="mr-kpi-top">
+                  <div class="mr-kpi-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M4 8h13l-3-3M20 16H7l3 3"/></svg></div>
+                  <svg class="mr-kpi-info" viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg>
+                </div>
+                <div class="mr-kpi-label">Retenção</div>
+                <div class="mr-kpi-num">68%</div>
+                <span class="mr-badge flat"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg> Estável</span>
+              </div>
+              <div class="mr-kpi">
+                <div class="mr-kpi-top">
+                  <div class="mr-kpi-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 3l9 16H3z"/><path d="M12 10v4M12 17h.01"/></svg></div>
+                  <svg class="mr-kpi-info" viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg>
+                </div>
+                <div class="mr-kpi-label">Risco de abandono</div>
+                <div class="mr-kpi-num">60%</div>
+                <span class="mr-badge down"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.4"><circle cx="12" cy="12" r="9"/><path d="M12 8v5M12 16h.01"/></svg> Alto risco</span>
+              </div>
+            </div>
+
+            <!-- LINE CHART -->
+            <div class="mr-panel">
+              <div class="mr-panel-head">
+                <div class="mr-panel-title">Acessos ao longo do tempo</div>
+                <svg class="mr-panel-info" viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg>
+              </div>
+              <svg class="mr-chart" viewBox="0 0 960 260" preserveAspectRatio="none" style="height:240px;">
+                <defs>
+                  <linearGradient id="lineFill" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#0052F7" stop-opacity="0.16"/>
+                    <stop offset="100%" stop-color="#0052F7" stop-opacity="0"/>
+                  </linearGradient>
+                </defs>
+                <g stroke="#F1F5F9" stroke-width="1">
+                  <line x1="46" y1="24" x2="940" y2="24"/><line x1="46" y1="74" x2="940" y2="74"/><line x1="46" y1="124" x2="940" y2="124"/><line x1="46" y1="174" x2="940" y2="174"/><line x1="46" y1="224" x2="940" y2="224"/>
+                </g>
+                <g class="mr-axis-y" text-anchor="end">
+                  <text x="38" y="28">400</text><text x="38" y="128">200</text><text x="38" y="178">100</text><text x="38" y="228">0</text><text x="38" y="78">300</text>
+                </g>
+                <path d="M 46.0 218.9 L 84.9 201.1 L 123.7 157.7 L 162.6 147.5 L 201.5 198.5 L 240.3 162.8 L 279.2 71.0 L 318.1 183.2 L 357.0 147.5 L 395.8 157.7 L 434.7 162.8 L 473.6 134.8 L 512.4 119.5 L 551.3 213.8 L 590.2 206.2 L 629.0 147.5 L 667.9 150.1 L 706.8 91.4 L 745.7 124.5 L 784.5 109.3 L 823.4 167.9 L 862.3 129.6 L 901.1 142.4 L 940.0 134.8 L 940.0 224 L 46.0 224 Z" fill="url(#lineFill)"/>
+                <path d="M 46.0 218.9 L 84.9 201.1 L 123.7 157.7 L 162.6 147.5 L 201.5 198.5 L 240.3 162.8 L 279.2 71.0 L 318.1 183.2 L 357.0 147.5 L 395.8 157.7 L 434.7 162.8 L 473.6 134.8 L 512.4 119.5 L 551.3 213.8 L 590.2 206.2 L 629.0 147.5 L 667.9 150.1 L 706.8 91.4 L 745.7 124.5 L 784.5 109.3 L 823.4 167.9 L 862.3 129.6 L 901.1 142.4 L 940.0 134.8" fill="none" stroke="#0052F7" stroke-width="2"/>
+                <g fill="#0052F7"><circle cx="46.0" cy="218.9" r="3"/><circle cx="84.9" cy="201.1" r="3"/><circle cx="123.7" cy="157.7" r="3"/><circle cx="162.6" cy="147.5" r="3"/><circle cx="201.5" cy="198.5" r="3"/><circle cx="240.3" cy="162.8" r="3"/><circle cx="279.2" cy="71.0" r="3"/><circle cx="318.1" cy="183.2" r="3"/><circle cx="357.0" cy="147.5" r="3"/><circle cx="395.8" cy="157.7" r="3"/><circle cx="434.7" cy="162.8" r="3"/><circle cx="473.6" cy="134.8" r="3"/><circle cx="512.4" cy="119.5" r="3"/><circle cx="551.3" cy="213.8" r="3"/><circle cx="590.2" cy="206.2" r="3"/><circle cx="629.0" cy="147.5" r="3"/><circle cx="667.9" cy="150.1" r="3"/><circle cx="706.8" cy="91.4" r="3"/><circle cx="745.7" cy="124.5" r="3"/><circle cx="784.5" cy="109.3" r="3"/><circle cx="823.4" cy="167.9" r="3"/><circle cx="862.3" cy="129.6" r="3"/><circle cx="901.1" cy="142.4" r="3"/><circle cx="940.0" cy="134.8" r="3"/></g>
+                <g><rect class="mr-tooltip-box" x="261" y="48" width="36" height="20" rx="4"/><text class="mr-tooltip-text" x="279" y="62" text-anchor="middle">300</text></g>
+                <g class="mr-axis-x" text-anchor="middle"><text x="46" y="248">1</text><text x="201" y="248">5</text><text x="357" y="248">9</text><text x="551" y="248">15</text><text x="745" y="248">19</text><text x="940" y="248">24</text></g>
+              </svg>
+            </div>
+
+            <!-- AREA CHART -->
+            <div class="mr-panel">
+              <div class="mr-panel-head">
+                <div class="mr-panel-title">Crescimento da base de usuários <span class="tag"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 19L19 5M19 5h-9M19 5v9"/></svg> Tendência positiva</span></div>
+                <svg class="mr-panel-info" viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg>
+              </div>
+              <svg class="mr-chart" viewBox="0 0 960 320" preserveAspectRatio="none" style="height:280px;">
+                <defs>
+                  <linearGradient id="areaFill" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#6366F1" stop-opacity="0.28"/>
+                    <stop offset="100%" stop-color="#6366F1" stop-opacity="0.02"/>
+                  </linearGradient>
+                </defs>
+                <g stroke="#F1F5F9" stroke-width="1">
+                  <line x1="46" y1="24" x2="940" y2="24"/><line x1="46" y1="75" x2="940" y2="75"/><line x1="46" y1="126" x2="940" y2="126"/><line x1="46" y1="177" x2="940" y2="177"/><line x1="46" y1="228" x2="940" y2="228"/><line x1="46" y1="280" x2="940" y2="280"/>
+                </g>
+                <g class="mr-axis-y" text-anchor="end"><text x="38" y="28">5k</text><text x="38" y="79">4k</text><text x="38" y="130">3k</text><text x="38" y="181">2k</text><text x="38" y="232">1k</text><text x="38" y="284">0</text></g>
+                <path d="M 46.0 131.5 C 86.6 131.5, 86.6 98.2, 127.3 98.2 C 167.9 98.2, 167.9 157.1, 208.5 157.1 C 249.2 157.1, 249.2 141.8, 289.8 141.8 C 330.5 141.8, 330.5 62.4, 371.1 62.4 C 411.7 62.4, 411.7 90.6, 452.4 90.6 C 493.0 90.6, 493.0 72.6, 533.6 72.6 C 574.3 72.6, 574.3 100.8, 614.9 100.8 C 655.5 100.8, 655.5 75.2, 696.2 75.2 C 736.8 75.2, 736.8 123.8, 777.5 123.8 C 818.1 123.8, 818.1 146.9, 858.7 146.9 C 899.4 146.9, 899.4 59.8, 940.0 59.8 L 940.0 280 L 46.0 280 Z" fill="url(#areaFill)"/>
+                <path d="M 46.0 131.5 C 86.6 131.5, 86.6 98.2, 127.3 98.2 C 167.9 98.2, 167.9 157.1, 208.5 157.1 C 249.2 157.1, 249.2 141.8, 289.8 141.8 C 330.5 141.8, 330.5 62.4, 371.1 62.4 C 411.7 62.4, 411.7 90.6, 452.4 90.6 C 493.0 90.6, 493.0 72.6, 533.6 72.6 C 574.3 72.6, 574.3 100.8, 614.9 100.8 C 655.5 100.8, 655.5 75.2, 696.2 75.2 C 736.8 75.2, 736.8 123.8, 777.5 123.8 C 818.1 123.8, 818.1 146.9, 858.7 146.9 C 899.4 146.9, 899.4 59.8, 940.0 59.8" fill="none" stroke="#6366F1" stroke-width="2.5"/>
+                <line x1="696.2" y1="75.2" x2="696.2" y2="280" stroke="#6366F1" stroke-width="1.5"/>
+                <circle cx="696.2" cy="75.2" r="6" fill="#6366F1" stroke="#fff" stroke-width="2.5"/>
+                <g><rect class="mr-tooltip-box" x="678" y="52" width="36" height="20" rx="4"/><text class="mr-tooltip-text" x="696" y="66" text-anchor="middle">300</text></g>
+                <g class="mr-axis-x" text-anchor="middle"><text x="46" y="304">JAN</text><text x="127" y="304">FEV</text><text x="208" y="304">MAR</text><text x="290" y="304">ABR</text><text x="371" y="304">MAI</text><text x="452" y="304">JUN</text><text x="534" y="304">JUL</text><text x="615" y="304">AGO</text><text x="696" y="304">SET</text><text x="777" y="304">OUT</text><text x="859" y="304">NOV</text><text x="940" y="304">DEZ</text></g>
+              </svg>
+            </div>
+
+            <!-- TABLE: mais ativos -->
+            <div class="mr-panel">
+              <div class="mr-panel-head">
+                <div class="mr-panel-title">Usuários mais ativos</div>
+                <svg class="mr-panel-info" viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg>
+              </div>
+              <div class="mr-search"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3-3"/></svg> Buscar instituição</div>
+              <table class="mr-table">
+                <thead><tr><th>Nome</th><th>Qtde de acessos</th><th>Frequência</th><th>Tempo médio</th><th>Último acesso</th><th>Status</th></tr></thead>
+                <tbody>
+                  <tr><td class="name"><span class="mr-rank r1">1</span> Ana Carla Beatriz</td><td>2.482</td><td>94%</td><td>88.5%</td><td>14/03/2024</td><td><span class="mr-status excelente">Excelente</span></td></tr>
+                  <tr><td class="name"><span class="mr-rank r2">2</span> Bruno Tavares</td><td>1.150</td><td>82%</td><td>74.2%</td><td>14/03/2024</td><td><span class="mr-status excelente">Excelente</span></td></tr>
+                  <tr><td class="name"><span class="mr-rank r3">3</span> Carla Menezes</td><td>542</td><td>61%</td><td>55.0%</td><td>14/03/2024</td><td><span class="mr-status excelente">Excelente</span></td></tr>
+                  <tr><td class="name"><span class="mr-rank rx">4</span> Diego Alves</td><td>3.105</td><td>34%</td><td>22.8%</td><td>14/03/2024</td><td><span class="mr-status bom">Bom</span></td></tr>
+                  <tr><td class="name"><span class="mr-rank rx">5</span> Elisa Prado</td><td>890</td><td>91%</td><td>84.0%</td><td>14/03/2024</td><td><span class="mr-status excelente">Excelente</span></td></tr>
+                </tbody>
+              </table>
+              <div class="mr-pager">
+                <span>Mostrando 5 de 1.284 usuários</span>
+                <div class="pages"><span>‹</span><span class="is-active">1</span><span>2</span><span>3</span><span>…</span><span>128</span><span>›</span></div>
+              </div>
+            </div>
+
+            <!-- INSIGHTS -->
+            <div class="mr-panel">
+              <div class="mr-panel-head"><div class="mr-panel-title">Insights e alertas</div></div>
+              <div class="mr-insights">
+                <div class="mr-insight warn"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 3l9 16H3z"/><path d="M12 10v4M12 16h.01"/></svg> A retenção de usuários caiu 5% nos últimos 30 dias</div>
+                <div class="mr-insight warn"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M12 3l9 16H3z"/><path d="M12 10v4M12 16h.01"/></svg> Foi identificado maior risco de abandono entre novos usuários</div>
+                <div class="mr-insight ok"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg> Os downloads no Android cresceram mais que no iOS nestes 30 dias</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ CAMADA PROFUNDA — índice fixo + seções ============ -->
+<div class="case-deep">
+  <div class="case-deep-inner">
+    <nav class="case-toc" aria-label="Seções deste case">
+      <a class="on" href="#sec-contexto"><i>01</i>Contexto</a>
+      <a href="#sec-dados"><i>02</i>Análise de dados</a>
+      <a href="#sec-b2b"><i>03</i>Visão B2B</a>
+      <a href="#sec-qualidade"><i>04</i>Feedback e qualidade</a>
+      <a href="#sec-login"><i>05</i>Login e identidade</a>
+      <a href="#sec-processo"><i>06</i>Processo</a>
+    </nav>
+    <div class="case-deep-main">
+
+<!-- ============ 01 — O DESAFIO / BRIEFING ============ -->
+<section id="sec-contexto" class="case-section">
+  <div class="case-section-inner">
+    <div class="case-section-head">
+      <div class="case-section-num">01 — Contexto<span>O ponto de partida</span></div>
+      <h2>Dados espalhados,<br/>nenhuma <em>visão</em></h2>
+    </div>
+    <div class="case-body">
+      <div class="case-body-side">Briefing</div>
+      <div>
+        <p>A MedRoom desenvolve aplicações de simulação e treinamento em saúde com realidade virtual — um dos modelos 3D mais completos do corpo humano, usado por mais de mil alunos em 15 escolas. Mas o uso real dos produtos vivia espalhado entre planilhas e relatórios isolados.</p>
+        <p>O briefing partiu de uma persona concreta da própria equipe: <strong style="color:var(--ink)">Dulcemir, gerente de Produtos</strong>, que precisava de uma visão única do engajamento dos usuários B2C (alunos) e B2B (instituições) em todos os produtos.</p>
+        <p class="pull">"Como gerente de Produtos MedRoom, gostaria de ter uma visão geral de engajamento dos usuários B2C e B2B no aplicativo."</p>
+        <p>Antes de abrir o Figma, o trabalho real foi outro: <strong style="color:var(--ink)">decidir quais dados deveriam existir</strong> — e o que cada número precisaria responder para virar decisão.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 02 — ANÁLISE DE DADOS ============ -->
+<section id="sec-dados" class="case-section tinted">
+  <div class="case-section-inner">
+    <div class="case-section-head">
+      <div class="case-section-num">02 — Análise de dados<span>Antes da interface</span></div>
+      <h2>Quais métricas <em>entrariam</em></h2>
+    </div>
+    <p style="font-family:var(--font); color:var(--ink-soft); max-width:720px; margin:0;">Mapeei e defini cada indicador de produto — o que é, por que importa e como se calcula — para só depois desenhar a tela. Essa definição virou a espinha dorsal do dashboard.</p>
+
+    <div class="mr-metrics-grid">
+      <div class="mr-metric-card">
+        <div class="k">Métrica 01</div>
+        <h4>Retenção</h4>
+        <p>Percentual de usuários que continuam usando o produto ao longo do tempo.</p>
+        <div class="ex">100 usuários entraram em agosto · 30 ainda usam após 30 dias → <b>Retenção = 30%</b></div>
+      </div>
+      <div class="mr-metric-card">
+        <div class="k">Métrica 02</div>
+        <h4>Risco de abandono</h4>
+        <p>Usuários que estão prestes a parar de usar — sinal de alerta para ação proativa.</p>
+        <div class="ex">% de usuários sem acesso há 30 dias · sessões caíram <b>80%</b></div>
+      </div>
+      <div class="mr-metric-card">
+        <div class="k">Métrica 03</div>
+        <h4>Crescimento da base</h4>
+        <p>Quanto a base de usuários aumenta (ou diminui) em um período.</p>
+        <div class="ex">Mês passado: 1.000 · Hoje: 1.200 → <b>Crescimento = +20%</b></div>
+      </div>
+      <div class="mr-metric-card">
+        <div class="k">Métrica 04</div>
+        <h4>Usuários ativos</h4>
+        <p>Quantas pessoas usam o produto em um período — segmentado por janela.</p>
+        <div class="ex">DAU → por dia · WAU → por semana · MAU → por mês</div>
+      </div>
+      <div class="mr-metric-card">
+        <div class="k">Métrica 05</div>
+        <h4>Downloads por plataforma</h4>
+        <p>Quantas pessoas instalaram o app, separado por loja.</p>
+        <div class="ex">App Store (iOS) vs. Google Play (Android)</div>
+      </div>
+      <div class="mr-metric-card">
+        <div class="k">Métrica 06</div>
+        <h4>Tempo &amp; frequência</h4>
+        <p>Quanto tempo o usuário passa e com que frequência volta. "Ela entra e usa, ou sai rápido?"</p>
+        <div class="ex">Tempo médio de sessão · média de acessos por usuário</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 03 — VISÃO B2B ============ -->
+<section id="sec-b2b" class="case-section">
+  <div class="case-section-inner">
+    <div class="case-section-head">
+      <div class="case-section-num">03 — Visão B2B<span>Instituições</span></div>
+      <h2>Da rede inteira ao <em>detalhe</em> de uma instituição</h2>
+    </div>
+    <p style="font-family:var(--font); color:var(--ink-soft); max-width:720px; margin:0 0 8px;">A aba B2B abre com filtros por grupo e instituição. A tabela lista todas com seu status de saúde; clicar em uma abre o drill-down com os indicadores daquela escola.</p>
+
+    <div style="max-width:1180px; margin:0 auto;">
+      <div class="mr-window">
+        <div class="mr-chrome">
+          <div class="lights"><span></span><span></span><span></span></div>
+          <div class="url">console.medroom.com.br/instituicoes</div>
+        </div>
+        <div class="mr-main" style="background:var(--mr-bg);">
+          <div class="mr-tabs" style="padding-top:14px;">
+            <div class="mr-tab">Visão geral</div>
+            <div class="mr-tab is-active">Instituições (B2B)</div>
+            <div class="mr-tab">Usuários B2C</div>
+            <div class="mr-tab">Feedback e Qualidade</div>
+          </div>
+          <div class="mr-content">
+            <div class="mr-panel">
+              <div class="mr-panel-head"><div class="mr-panel-title"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 5h18M6 12h12M10 19h4"/></svg> Filtros</div></div>
+              <div class="mr-filters">
+                <div class="mr-field"><span class="lbl">Grupo</span><span class="val">Hospitais <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span></div>
+                <div class="mr-field"><span class="lbl">Instituição</span><span class="val">Todas <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg></span></div>
+              </div>
+              <p style="font-family:var(--mr-ui); font-size:12px; color:var(--mr-slate-500); margin:16px 0 0;">Exibindo dados de: Hospitais</p>
+            </div>
+
+            <!-- drill-down KPIs of one institution -->
+            <div class="mr-panel">
+              <div class="mr-panel-head"><div class="mr-panel-title">Hospital São Lucas</div><svg class="mr-panel-info" viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg></div>
+              <div class="mr-kpis" style="grid-template-columns:repeat(3,1fr);">
+                <div class="mr-kpi"><div class="mr-kpi-label" style="margin-top:0;">Usuários ativos</div><div class="mr-kpi-num">895</div><p style="font-family:var(--mr-ui);font-size:12px;color:var(--mr-slate-500);margin:8px 0 0;">Total de usuários ativos na instituição</p></div>
+                <div class="mr-kpi"><div class="mr-kpi-label" style="margin-top:0;">Taxa de ativos</div><div class="mr-kpi-num">87.3%</div><p style="font-family:var(--mr-ui);font-size:12px;color:var(--mr-slate-500);margin:8px 0 0;">Percentual ativo nos últimos 30 dias</p></div>
+                <div class="mr-kpi"><div class="mr-kpi-label" style="margin-top:0;">Média de acessos</div><div class="mr-kpi-num">1.250</div><p style="font-family:var(--mr-ui);font-size:12px;color:var(--mr-slate-500);margin:8px 0 0;">Por usuário ativo no período</p></div>
+                <div class="mr-kpi"><div class="mr-kpi-label" style="margin-top:0;">Quantidade de acessos</div><div class="mr-kpi-num">1.250</div><p style="font-family:var(--mr-ui);font-size:12px;color:var(--mr-slate-500);margin:8px 0 0;">Total de acessos no período</p></div>
+                <div class="mr-kpi"><div class="mr-kpi-label" style="margin-top:0;">Último acesso</div><div class="mr-kpi-num" style="font-size:18px;">15 mar 2024 · 14:30</div><p style="font-family:var(--mr-ui);font-size:12px;color:var(--mr-slate-500);margin:8px 0 0;">Última atividade registrada</p></div>
+                <div class="mr-kpi"><div class="mr-kpi-label" style="margin-top:0;">Status da instituição</div><div style="margin-top:6px;"><span class="mr-status excelente">Excelente</span></div><p style="font-family:var(--mr-ui);font-size:12px;color:var(--mr-slate-500);margin:8px 0 0;">Classificação pelo desempenho geral</p></div>
+              </div>
+            </div>
+
+            <!-- institution table -->
+            <div class="mr-panel">
+              <div class="mr-panel-head"><div class="mr-panel-title">Instituições</div></div>
+              <div class="mr-search"><svg viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3-3"/></svg> Buscar instituição</div>
+              <table class="mr-table">
+                <thead><tr><th>Instituição</th><th>Usuários ativos</th><th>Taxa de ativos</th><th>Retenção</th><th>Qtde acessos</th><th>Status</th></tr></thead>
+                <tbody>
+                  <tr><td class="name">Hospital São Lucas</td><td>2.482</td><td>94%</td><td>88.5%</td><td>12.405</td><td><span class="mr-status excelente">Excelente</span></td></tr>
+                  <tr><td class="name">Faculdade Santa Helena</td><td>1.150</td><td>82%</td><td>74.2%</td><td>8.920</td><td><span class="mr-status bom">Bom</span></td></tr>
+                  <tr><td class="name">Clínica Metropolitana</td><td>542</td><td>61%</td><td>55.0%</td><td>3.211</td><td><span class="mr-status regular">Regular</span></td></tr>
+                  <tr><td class="name">Universidade Central</td><td>3.105</td><td>34%</td><td>22.8%</td><td>1.402</td><td><span class="mr-status critico">Crítico</span></td></tr>
+                  <tr><td class="name">Instituto Biotech</td><td>890</td><td>91%</td><td>84.0%</td><td>6.750</td><td><span class="mr-status excelente">Excelente</span></td></tr>
+                </tbody>
+              </table>
+              <div class="mr-pager"><span>Mostrando 5 de 1.284 instituições</span><div class="pages"><span>‹</span><span class="is-active">1</span><span>2</span><span>3</span><span>…</span><span>128</span><span>›</span></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 04 — FEEDBACK E QUALIDADE ============ -->
+<section id="sec-qualidade" class="case-section tinted">
+  <div class="case-section-inner">
+    <div class="case-section-head">
+      <div class="case-section-num">04 — Feedback &amp; Qualidade<span>Biblioteca de gráficos</span></div>
+      <h2>Cada pergunta pede um <em>gráfico</em></h2>
+    </div>
+    <p style="font-family:var(--font); color:var(--ink-soft); max-width:720px; margin:0;">A aba de qualidade combina sentimento, distribuição de avaliações, downloads por plataforma, conteúdos e funcionalidades mais acessadas — cada visualização escolhida pela pergunta que precisa responder.</p>
+
+    <div class="mr-grid-2" style="margin-top:24px;">
+      <!-- sentiment -->
+      <div class="mr-panel">
+        <div class="mr-panel-head"><div class="mr-panel-title">Feedback geral</div></div>
+        <div class="mr-senti">
+          <div><div class="lab">Negativo</div><div class="face">🙁</div><div class="cnt">16</div></div>
+          <div><div class="lab">Neutro</div><div class="face">😐</div><div class="cnt">45</div></div>
+          <div><div class="lab">Positivo</div><div class="face">🙂</div><div class="cnt">2.113</div></div>
+        </div>
+        <div class="mr-senti-bars">
+          <span></span><div class="mr-senti-bar" style="background:#DC2626;"></div><div class="mr-senti-bar" style="background:#D97706;"></div>
+        </div>
+        <div class="mr-senti-bars" style="grid-template-columns:1fr; margin-top:8px;">
+          <div class="mr-senti-bar" style="background:#16A34A; height:22px;"></div>
+        </div>
+      </div>
+
+      <!-- distribution bars -->
+      <div class="mr-panel">
+        <div class="mr-panel-head"><div class="mr-panel-title">Distribuição das avaliações</div></div>
+        <div class="mr-bars">
+          <div class="mr-bar-col"><span class="v">74</span><div class="bar" style="height:18px;background:#DC2626;"></div><span class="x">1 ★</span></div>
+          <div class="mr-bar-col"><span class="v">102</span><div class="bar" style="height:26px;background:#DC2626;"></div><span class="x">2 ★</span></div>
+          <div class="mr-bar-col"><span class="v">184</span><div class="bar" style="height:46px;background:#D97706;"></div><span class="x">3 ★</span></div>
+          <div class="mr-bar-col"><span class="v">356</span><div class="bar" style="height:92px;background:#16A34A;"></div><span class="x">4 ★</span></div>
+          <div class="mr-bar-col"><span class="v">568</span><div class="bar" style="height:140px;background:#16A34A;"></div><span class="x">5 ★</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mr-grid-2" style="margin-top:16px;">
+      <!-- donut downloads -->
+      <div class="mr-panel">
+        <div class="mr-panel-head"><div class="mr-panel-title">Downloads por plataforma</div></div>
+        <div style="display:flex; align-items:center; gap:28px;">
+          <svg width="160" height="160" viewBox="0 0 42 42">
+            <circle cx="21" cy="21" r="15.9" fill="none" stroke="#0052F7" stroke-width="8"/>
+            <circle cx="21" cy="21" r="15.9" fill="none" stroke="#C026D3" stroke-width="8" stroke-dasharray="30 70" stroke-dashoffset="25" transform="rotate(-90 21 21)"/>
+            <text x="21" y="20" text-anchor="middle" font-family="JetBrains Mono" font-size="6" font-weight="600" fill="#0F172A">4.000</text>
+            <text x="21" y="26" text-anchor="middle" font-family="Inter" font-size="2.6" fill="#64748B">total</text>
+          </svg>
+          <div style="flex:1;">
+            <div class="mr-device-row" style="grid-template-columns:14px 1fr 44px;"><span style="width:10px;height:10px;border-radius:3px;background:#0052F7;display:inline-block;"></span> Android <span class="pct">70%</span></div>
+            <div class="mr-device-row" style="grid-template-columns:14px 1fr 44px;"><span style="width:10px;height:10px;border-radius:3px;background:#C026D3;display:inline-block;"></span> iOS <span class="pct">30%</span></div>
+            <div class="mr-device-row" style="grid-template-columns:1fr 44px; border-top:1px solid var(--mr-line); margin-top:8px; padding-top:12px;"><span>Total de downloads</span><span class="pct" style="color:var(--mr-blue);">4.000</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- bugs line down -->
+      <div class="mr-panel">
+        <div class="mr-panel-head"><div class="mr-panel-title">Bugs reportados ao longo do tempo</div></div>
+        <svg class="mr-chart" viewBox="0 0 960 240" preserveAspectRatio="none" style="height:170px;">
+          <g stroke="#F1F5F9" stroke-width="1"><line x1="40" y1="20" x2="940" y2="20"/><line x1="40" y1="76" x2="940" y2="76"/><line x1="40" y1="132" x2="940" y2="132"/><line x1="40" y1="188" x2="940" y2="188"/></g>
+          <path d="M 40.0 114.0 L 121.8 73.3 L 203.6 35.7 L 285.5 67.0 L 367.3 114.0 L 449.1 123.4 L 530.9 135.9 L 612.7 151.6 L 694.5 164.1 L 776.4 173.5 L 858.2 182.9 L 940.0 192.3" fill="none" stroke="#DC2626" stroke-width="2"/>
+          <g fill="#DC2626"><circle cx="40.0" cy="114.0" r="3"/><circle cx="121.8" cy="73.3" r="3"/><circle cx="203.6" cy="35.7" r="3"/><circle cx="285.5" cy="67.0" r="3"/><circle cx="367.3" cy="114.0" r="3"/><circle cx="449.1" cy="123.4" r="3"/><circle cx="530.9" cy="135.9" r="3"/><circle cx="612.7" cy="151.6" r="3"/><circle cx="694.5" cy="164.1" r="3"/><circle cx="776.4" cy="173.5" r="3"/><circle cx="858.2" cy="182.9" r="3"/><circle cx="940.0" cy="192.3" r="3"/></g>
+          <g class="mr-axis-x" text-anchor="middle"><text x="40" y="212">JAN</text><text x="285" y="212">ABR</text><text x="530" y="212">JUL</text><text x="776" y="212">OUT</text><text x="940" y="212">DEZ</text></g>
+        </svg>
+      </div>
+    </div>
+
+    <div class="mr-grid-2" style="margin-top:16px;">
+      <!-- device usage -->
+      <div class="mr-panel">
+        <div class="mr-panel-head"><div class="mr-panel-title">Dispositivos mais usados</div></div>
+        <div class="mr-device-row"><span>iPhone 14 Pro</span><div class="mr-device-track"><div class="mr-device-fill" style="width:100%;"></div></div><span class="pct">30%</span></div>
+        <div class="mr-device-row"><span>Samsung Galaxy S23</span><div class="mr-device-track"><div class="mr-device-fill" style="width:66%;"></div></div><span class="pct">20%</span></div>
+        <div class="mr-device-row"><span>iPhone 13</span><div class="mr-device-track"><div class="mr-device-fill" style="width:50%;"></div></div><span class="pct">15%</span></div>
+        <div class="mr-device-row"><span>iPad Pro 12.9</span><div class="mr-device-track"><div class="mr-device-fill" style="width:33%;"></div></div><span class="pct">10%</span></div>
+        <div class="mr-device-row"><span>Google Pixel 7</span><div class="mr-device-track"><div class="mr-device-fill" style="width:26%;"></div></div><span class="pct">8%</span></div>
+        <div class="mr-device-row"><span>Galaxy Tab S8</span><div class="mr-device-track"><div class="mr-device-fill" style="width:23%;"></div></div><span class="pct">7%</span></div>
+      </div>
+
+      <!-- features bubble -->
+      <div class="mr-panel">
+        <div class="mr-panel-head"><div class="mr-panel-title">Funcionalidades mais acessadas</div></div>
+        <svg width="100%" height="220" viewBox="0 0 420 220">
+          <g font-family="Inter" font-weight="600" text-anchor="middle">
+            <circle cx="150" cy="140" r="58" fill="#C026D3"/><text x="150" y="138" fill="#fff" font-size="15">Anatomia</text><text x="150" y="156" fill="#fff" font-size="12">42%</text>
+            <circle cx="270" cy="90" r="44" fill="#EA580C"/><text x="270" y="88" fill="#fff" font-size="12">Anatomia</text><text x="270" y="104" fill="#fff" font-size="10">36%</text>
+            <circle cx="320" cy="160" r="36" fill="#0052F7"/><text x="320" y="158" fill="#fff" font-size="10">Favoritos</text><text x="320" y="172" fill="#fff" font-size="9">30%</text>
+            <circle cx="210" cy="58" r="28" fill="#16A34A"/><text x="210" y="56" fill="#fff" font-size="9">Questões</text><text x="210" y="68" fill="#fff" font-size="8">22%</text>
+            <circle cx="360" cy="100" r="18" fill="#DC2626"/><text x="360" y="103" fill="#fff" font-size="7">Vídeo</text>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 05 — LOGIN + DESIGN ============ -->
+<section id="sec-login" class="case-section">
+  <div class="case-section-inner">
+    <div class="case-section-head">
+      <div class="case-section-num">05 — Entrada<span>Login &amp; identidade</span></div>
+      <h2>A <em>porta</em> de entrada</h2>
+    </div>
+    <p style="font-family:var(--font); color:var(--ink-soft); max-width:720px; margin:0 0 8px;">Tela de login com a identidade MedRoom — bloco de marca em azul institucional com padrão geométrico, formulário objetivo e seletor de idioma.</p>
+
+    <div style="max-width:1180px; margin:0 auto;">
+      <div class="mr-login">
+        <div class="mr-login-art">
+          <div class="mr-login-logo">
+            <img src="../assets/medroom/logo-mark.svg" alt="MedRoom" style="filter:brightness(0) invert(1);" />
+            <strong>MedRoom</strong>
+          </div>
+        </div>
+        <div class="mr-login-form">
+          <h3>Login</h3>
+          <div class="mr-login-input">E-mail <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M2 6l10 7L22 6"/><rect x="2" y="5" width="20" height="14" rx="2"/></svg></div>
+          <p class="mr-login-help">Insira o e-mail institucional</p>
+          <div class="mr-login-input">Senha <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg></div>
+          <div class="mr-login-row">
+            <span class="remember"><i></i> Lembrar senha</span>
+            <a href="#">Esqueceu a senha?</a>
+          </div>
+          <div class="mr-login-btn">Entrar</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 06 — PROCESSO ============ -->
+<section id="sec-processo" class="case-section tinted">
+  <div class="case-section-inner">
+    <div class="case-section-head">
+      <div class="case-section-num">06 — Processo<span>Do dado ao código</span></div>
+      <h2>Como foi <em>construído</em></h2>
+    </div>
+
+    <div class="case-process-grid">
+      <article class="case-process-step">
+        <div class="case-process-step-num">01 / 04</div>
+        <h3>Briefing &amp; persona</h3>
+        <p>Parti das necessidades reais da gerência de produto e das instituições. Estruturei as histórias de usuário ("como gerente, gostaria de…") para guiar o escopo.</p>
+      </article>
+      <article class="case-process-step">
+        <div class="case-process-step-num">02 / 04</div>
+        <h3>Análise de dados</h3>
+        <p>Defini quais métricas entrariam — retenção, churn, crescimento, DAU/WAU/MAU, downloads, tempo e frequência — com fórmula e propósito de cada uma.</p>
+      </article>
+      <article class="case-process-step">
+        <div class="case-process-step-num">03 / 04</div>
+        <h3>Design no Figma</h3>
+        <p>Arquitetura de informação em abas (Visão geral, B2B, B2C, Qualidade), sistema de KPIs, tabelas com status e a biblioteca de gráficos. Tudo prototipado em alta-fidelidade.</p>
+      </article>
+      <article class="case-process-step">
+        <div class="case-process-step-num">04 / 04</div>
+        <h3>Front-end com IA</h3>
+        <p>Implementação do front-end acelerada por IA a partir do design, com a curadoria e os ajustes de fidelidade ficando comigo — do espaçamento ao comportamento dos componentes.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+    </div>
+  </div>
+</div>
+
+<!-- ============ 07 — ENTREGAS ============ -->
+<section class="case-section">
+  <div class="case-section-inner">
+    <div class="case-section-head">
+      <div class="case-section-num">07 — Entregas<span>O que foi construído</span></div>
+      <h2>O que <em>entreguei</em></h2>
+    </div>
+    <div class="case-results-grid">
+      <div class="case-metric"><div class="case-metric-num"><em>4</em></div><div class="case-metric-label">Abas analíticas — Visão geral, B2B, B2C e Qualidade</div></div>
+      <div class="case-metric"><div class="case-metric-num"><em>12+</em></div><div class="case-metric-label">Métricas de produto definidas com fórmula e propósito</div></div>
+      <div class="case-metric"><div class="case-metric-num"><em>8</em></div><div class="case-metric-label">Tipos de visualização — linha, área, barra, donut, bolha, tabela</div></div>
+      <div class="case-metric"><div class="case-metric-num">B2B<span style="-webkit-text-fill-color:initial;">+</span>B2C</div><div class="case-metric-label">Dois públicos em uma só visão, com drill-down por instituição</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ RELATED ============ -->
+<section class="case-related">
+  <div class="case-related-inner">
+    <div class="case-related-head">
+      <div>
+        <div class="case-section-num">Continue explorando<span>Outros projetos</span></div>
+        <h2>Veja outros cases</h2>
+      </div>
+      <a class="case-related-back" href="../index.html#projetos">Ver todos &nbsp;<span class="arrow-ne"></span></a>
+    </div>
+    <div class="case-related-grid" data-rail="dots" data-rail-bp="920">
+      <a class="proj-card px-notch" href="pesquisa-residentes.html">
+        <div class="proj-thumb" style="background:var(--bg-3);display:grid;place-items:center;">
+          <span style="font-family:var(--serif);font-weight:600;font-size:26px;letter-spacing:-0.03em;color:var(--lilac);text-align:center;line-height:1.2;">Pesquisa<br/>com usuários</span>
+        </div>
+        <div class="proj-body">
+          <div class="proj-meta">Case 03 · 2026</div>
+          <div class="proj-tags"><span class="proj-tag">UX Research</span><span class="proj-tag">Personas</span></div>
+          <h3>Médicos residentes</h3>
+          <div class="proj-facts">
+            <div class="proj-fact"><span class="k">Papel</span><span class="v">UX Researcher</span></div>
+            <div class="proj-fact"><span class="k">Escopo</span><span class="v">Entrevistas e síntese</span></div>
+          </div>
+          <span class="proj-more">Ver case <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13"/><path d="m12 5 7 7-7 7"/></svg></span>
+        </div>
+      </a>
+      <a class="proj-card px-notch" href="stenio.html">
+        <div class="proj-thumb" style="background-image:url('../assets/stenio/about-shop.webp');"></div>
+        <div class="proj-body">
+          <div class="proj-meta">Case 01 · 2025</div>
+          <div class="proj-tags"><span class="proj-tag">Design</span><span class="proj-tag">Front-end</span></div>
+          <h3>Stenio's Barbearia</h3>
+          <div class="proj-facts">
+            <div class="proj-fact"><span class="k">Papel</span><span class="v">Designer e front-end</span></div>
+            <div class="proj-fact"><span class="k">Escopo</span><span class="v">Brand, UI e código</span></div>
+          </div>
+          <span class="proj-more">Ver case <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h13"/><path d="m12 5 7 7-7 7"/></svg></span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer class="foot-v2">
+  <div class="wrap">
+    <div class="foot-v2-row">
+      <div>
+        <div class="name"><span class="brand-emk">Emerson</span> Siqueira</div>
+        <div class="role">UX/UI Designer · Product Designer</div>
+        <div class="socials">
+          <a class="social" href="https://www.linkedin.com/in/emesiqueira" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.852 3.37-1.852 3.601 0 4.267 2.37 4.267 5.455v6.288zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+          <a class="social" href="https://medium.com/@emesiqueira" target="_blank" rel="noopener" aria-label="Medium">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.54 12a6.8 6.8 0 0 1-6.77 6.82A6.8 6.8 0 0 1 0 12a6.8 6.8 0 0 1 6.77-6.82A6.8 6.8 0 0 1 13.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42S20.96 8.46 20.96 12M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z"/></svg>
+          </a>
+          <a class="social" href="https://github.com/emesiqueira" target="_blank" rel="noopener" aria-label="GitHub">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+          </a>
+          <a class="social" href="https://www.behance.net/emesiqueira" target="_blank" rel="noopener" aria-label="Behance">
+            <svg viewBox="0.5 94.187 511 323.626" fill="currentColor" aria-hidden="true"><path d="M206.729 238.87s48.358-3.59 48.358-60.297c0-56.711-39.563-84.387-89.678-84.387H.5v316.909h164.909s100.671 3.18 100.671-93.537c0 .001 4.389-78.688-59.351-78.688zm-53.19-88.357h11.87s22.416 0 22.416 32.973c0 32.969-13.183 37.749-28.136 37.749H73.161v-70.722h80.378zm7.21 204.257H73.161v-84.69h92.248s33.41-.438 33.41 43.522c0 37.068-24.954 40.888-38.07 41.168zm239.593-179.953c-121.873 0-121.765 121.766-121.765 121.766s-8.362 121.141 121.765 121.141c0 0 108.438 6.195 108.438-84.271h-55.768s1.86 34.068-50.81 34.068c0 0-55.777 3.738-55.777-55.135H510.64c0-.001 17.968-137.569-110.298-137.569zm-54.53 95.263s6.81-48.846 55.769-48.846c48.949 0 48.336 48.846 48.336 48.846H345.812zm117.096-118.199H332.159v-39.025h130.749v39.025z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="foot-right">
+        <button class="mail-copy" id="mailCopy" type="button" data-mail="emersonsiqueira@live.com" aria-label="Copiar e-mail: emersonsiqueira@live.com">
+          <svg class="mail-ico-left" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2.5"/><path d="m3 6.5 9 6 9-6"/></svg>
+          <span class="mail-text">emersonsiqueira@live.com</span>
+          <span class="mail-ico-act" aria-hidden="true">
+            <svg class="ico-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="11" height="11" rx="2.4"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            <svg class="ico-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            <span class="mail-tip" id="mailTip">Copiar</span>
+          </span>
+        </button>
+      </div>
+    </div>
+    <div class="copy">© 2026 Emerson Siqueira · UX/UI &amp; Product Designer · Belo Horizonte</div>
+  </div>
+</footer>
+
+<script src="../scripts/rails.js?v=1"></script>
+<script src="case.js?v=4"></script>
+</body>
+</html>
