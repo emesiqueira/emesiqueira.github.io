@@ -129,18 +129,52 @@
     .cv-modal-close { width: 38px; height: 38px; border-radius: 50%; border: 1px solid var(--line); background: transparent; color: var(--ink-soft); font-size: 14px; cursor: pointer; display: grid; place-items: center; transition: border-color 0.2s, color 0.2s; }
     .cv-modal-close:hover { border-color: var(--coral); color: var(--coral); }
     .cv-modal iframe { flex: 1; width: 100%; border: 0; background: #fff; display: block; }
-    @media (max-width: 700px) { .cv-modal-card { width: 96vw; } .cv-modal-bar { padding: 11px 12px 11px 16px; } }
+    @media (max-width: 700px) { .cv-modal-card { width: 100vw; top: 0; bottom: 0; border: 0; border-radius: 0; } .cv-modal-bar { padding: 10px 12px 10px 16px; } .cv-modal-title { font-size: 11px; letter-spacing: .1em; } .cv-modal iframe { overflow-x: hidden; } }
     @keyframes cvFade { from { opacity: 0; } to { opacity: 1; } }
     @keyframes cvRise { from { opacity: 0; transform: translateX(-50%) translateY(16px); } to { opacity: 1; transform: translateX(-50%); } }
+    /* som ativo: sutil, sem verde-sobre-verde */
+    #contactSubmit{transition:background .3s,color .3s,box-shadow .3s}#contactSubmit:disabled{background:color-mix(in oklch,var(--coral) 38%,var(--cream));color:rgba(26,15,11,.55);box-shadow:none!important;cursor:not-allowed;transform:none!important}
+    .sfx-btn[aria-pressed="true"]{color:var(--ink)!important;border-color:var(--line)!important}
+    /* nav some ao rolar (mobile) + botão flutuante de voltar ao topo */
+    .nav{transition:transform .8s cubic-bezier(.22,.61,.36,1),opacity .8s cubic-bezier(.22,.61,.36,1),background .3s}
+    .to-top{position:fixed;right:16px;bottom:16px;z-index:60;width:48px;height:48px;display:grid;place-items:center;background:var(--bg-3);color:var(--ink);border:1px solid var(--line);cursor:pointer;--px:4px;opacity:0;transform:translateY(12px);pointer-events:none;transition:opacity .6s var(--ease),transform .6s var(--ease)}
+    .to-top svg{width:18px;height:18px}
+    .to-top.show{opacity:1;transform:none;pointer-events:auto}
+    .to-top:hover{background:var(--mint);color:var(--bg)}
+    @media (min-width:761px){.to-top{display:none}}
+    @media (max-width:760px){
+      .nav.nav-away{transform:translateY(-100%);opacity:0;pointer-events:none}
+      .nav{gap:16px}
+      .brand{margin-right:.35em}
+      .nav-right{gap:10px!important}
+      .clients .client-logo{min-height:84px;padding:12px 8px}
+      .clients .client-logo img{max-height:calc(var(--h,34px) * 1.2)}
+    }
+    @media (max-width:400px){
+      .nav{padding-inline:14px}
+      .nav-right .btn-mint{padding-inline:12px;font-size:12.5px}
+    }
     @media (prefers-reduced-motion: reduce) {
       .avail .dot, .contact-paper .blink, .g-orbit.float, .sticker.float { animation: none !important; }
       .cv-modal-backdrop, .cv-modal-card { animation: none !important; }
       *, *::before, *::after { scroll-behavior: auto !important; }
     }
   </style>
+<!-- Hotjar Tracking Code for Emerson Siqueira - Portfolio -->
+<script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:6804468,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
 </head>
 <body data-immersive="x">
 
+<button type="button" class="to-top px-notch" id="toTop" aria-label="Voltar ao topo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5"></path><path d="m5 12 7-7 7 7"></path></svg></button>
 <!-- NAV -->
 <nav class="nav">
   <a class="brand" href="index.html" aria-label="Emerson Siqueira">Emerson<span class="brand-spark" aria-hidden="true"><svg viewBox="0 0 24 24"><path class="tw" d="M12 0c.7 6.3 5.4 11 11.7 11.7C17.4 12.4 12.7 17.1 12 23.4 11.3 17.1 6.6 12.4 .3 11.7 6.6 11 11.3 6.3 12 0z" fill="var(--coral)"/></svg></span></a>
@@ -229,8 +263,8 @@
   <div class="clients" data-rail="dots" data-rail-group="3">
     <div class="client-logo" style="--h:48px"><img src="assets/business-1.png" alt="PUC Minas" /></div>
     <div class="client-logo" style="--h:44px"><img src="assets/business-5.png" alt="Cervejaria Colorado" /></div>
-    <div class="client-logo" style="--h:38px"><img src="assets/business-4.png" alt="New Holland Agriculture" /></div>
-    <div class="client-logo" style="--h:26px"><img src="assets/business-3.png" alt="IVECO" /></div>
+    <div class="client-logo" style="--h:48px"><img src="assets/business-4.png" alt="New Holland Agriculture" /></div>
+    <div class="client-logo" style="--h:34px"><img src="assets/business-3.png" alt="IVECO" /></div>
     <div class="client-logo" style="--h:34px"><img src="assets/business-2.png" alt="Corona" /></div>
   </div>
 </section>
@@ -330,7 +364,7 @@
           <li data-i18n="tree.b1n1"><b>Entrevistas e testes de usabilidade</b>Roteiro, condução e síntese</li>
           <li data-i18n="tree.b1n2"><b>Auditoria heurística</b>Nielsen, acessibilidade e consistência</li>
           <li data-i18n="tree.b1n3"><b>Personas e jornadas</b>Construídas a partir de campo</li>
-          <li data-i18n="tree.b1n4"><b>Quanti + quali</b>Teste A/B, funil e métricas</li>
+          <li data-i18n="tree.b1n4"><b>Quantitativa e qualitativa</b>Teste A/B, funil e métricas</li>
         </ul>
       </div>
       <div class="skill-col">
@@ -345,10 +379,10 @@
       <div class="skill-col">
         <h3 data-i18n="tree.b3">Entrega</h3>
         <ul class="skill-list">
-          <li data-i18n="tree.b3n1"><b>Figma, FigJam, Framer</b>Miro para colaboração</li>
-          <li data-i18n="tree.b3n2"><b>Front-end</b>HTML, CSS e handoff com dev</li>
+          <li data-i18n="tree.b3n1"><b>Figma e FigJam</b>Miro para colaboração</li>
+          <li data-i18n="tree.b3n2"><b>Front-end</b>HTML, CSS e JavaScript, do zero ao ar com apoio de IA</li>
           <li data-i18n="tree.b3n3"><b>Agile / Scrum</b>Rituais e trabalho junto do time</li>
-          <li class="soon" data-i18n="tree.b3n4"><b>Motion e 3D</b>Em treinamento</li>
+          <li data-i18n="tree.b3n4"><b>Motion e 3D</b>Animação de interface e modelagem</li>
         </ul>
       </div>
     </div>
@@ -365,7 +399,7 @@
       <h2><span class="type-rot" id="typeRot">MANDA JOBS</span><span class="blink" aria-hidden="true">|</span></h2>
       <form class="contact-form" id="contactForm" action="https://formsubmit.co/ajax/emersonsiqueira@live.com" method="POST" novalidate>
         <div class="contact-field"><label for="cf-name" data-i18n="form.name">Seu nome</label><input id="cf-name" name="Nome" type="text" autocomplete="given-name" required data-i18n-ph="form.name.ph" placeholder="Insira seu nome" /></div>
-        <div class="contact-field"><label for="cf-last" data-i18n="form.last">Sobrenome</label><input id="cf-last" name="Sobrenome" type="text" autocomplete="family-name" data-i18n-ph="form.last.ph" placeholder="Seu sobrenome" /></div>
+        <div class="contact-field"><label for="cf-last" data-i18n="form.last">Sobrenome</label><input id="cf-last" name="Sobrenome" type="text" autocomplete="family-name" required data-i18n-ph="form.last.ph" placeholder="Seu sobrenome" /></div>
         <div class="contact-field full"><label for="cf-email" data-i18n="form.email">E-mail</label><input id="cf-email" name="email" type="email" autocomplete="email" required data-i18n-ph="form.email.ph" placeholder="voce@email.com" /></div>
         <div class="contact-field full"><label for="cf-msg" data-i18n="form.msg">Mensagem</label><textarea id="cf-msg" name="Mensagem" rows="3" required data-i18n-ph="form.msg.ph" placeholder="Conta sua ideia…"></textarea></div>
         <input type="hidden" name="_subject" value="Novo contato pelo portfólio" />
@@ -374,7 +408,6 @@
       </form>
       <div style="margin-top:30px;"><button class="btn btn-coral" type="submit" form="contactForm" id="contactSubmit" data-i18n="form.send">Enviar mensagem</button></div>
       <div class="form-status" id="formStatus" role="status" aria-live="polite"></div>
-      <p class="contact-note" data-i18n="contact.note">A mensagem cai direto no meu e-mail — <strong>emersonsiqueira@live.com</strong> — e eu respondo por lá. Se preferir, me chama no <a href="https://www.linkedin.com/in/emesiqueira" target="_blank" rel="noopener">LinkedIn</a> ou no <a href="https://www.behance.net/emesiqueira" target="_blank" rel="noopener">Behance</a>.</p>
     </div>
   </div>
 </section>
@@ -445,6 +478,7 @@
     M.forEach(function(m,j){pips.appendChild(document.createElement('i'));var b=document.createElement('button');b.type='button';b.className='av-slot px-notch';b.setAttribute('aria-label',m[1]);b.innerHTML='<img src="assets/avatar/'+m[2]+'.png" alt="">';b.onclick=function(){go(j)};b.onmouseenter=function(){lab.textContent=m[1]};b.onmouseleave=function(){lab.textContent=M[idx][1]};row.appendChild(b);if(j&&j<N-1){var s=document.createElement('div');s.className='av-d-stop';s.style.left=(j/(N-1)*100)+'%';tr.insertBefore(s,kn)}});
     function pos(p){kn.style.left=p*100+'%';fill.style.width=p*100+'%'}
     function go(j){setMood(keys[(j+N)%N])}
+    window.__avNext=function(){go(idx+1)};
     window.__avSync=function(m){idx=keys.indexOf(m);curs.forEach(function(c){c.textContent=M[idx][1]});lab.textContent=M[idx][1];pips.querySelectorAll('i').forEach(function(p,j){p.classList.toggle('on',j===idx)});row.querySelectorAll('.av-slot').forEach(function(s,j){s.classList.toggle('on',j===idx)});if(!tr.classList.contains('drag'))pos(idx/(N-1))};
     moods.querySelectorAll('.av-arrow').forEach(function(b){b.onclick=function(){go(idx+ +b.dataset.d)}});
     function mv(e){var r=tr.getBoundingClientRect(),p=Math.max(0,Math.min(1,(e.clientX-r.left)/r.width));pos(p);var n=Math.round(p*(N-1));if(n!==idx)go(n)}
@@ -457,7 +491,7 @@
   document.addEventListener('pointermove',function(e){if(drag)return;var r=stage.getBoundingClientRect();var cx=r.left+r.width/2,cy=r.top+r.height/2;ty=Math.max(-1,Math.min(1,(e.clientX-cx)/(innerWidth/2)))*9;tx=Math.max(-1,Math.min(1,(e.clientY-cy)/(innerHeight/2)))*-6;});
   stage.addEventListener('pointerdown',function(e){drag={x:e.clientX,y:e.clientY,ry:ry,rx:rx};moved=false;stage.classList.add('drag');stage.setPointerCapture(e.pointerId)});
   stage.addEventListener('pointermove',function(e){if(!drag)return;var dx=e.clientX-drag.x,dy=e.clientY-drag.y;if(Math.abs(dx)+Math.abs(dy)>4)moved=true;ty=0;tx=0;});
-  function end(){if(!drag)return;drag=null;stage.classList.remove('drag');ty=0;tx=0;if(!moved){var cur=head.querySelector('img.on').dataset.mood;setMood(order[(order.indexOf(cur)+1)%order.length]);}}
+  function end(e){if(!drag)return;drag=null;stage.classList.remove('drag');ty=0;tx=0;if(!moved&&e.type==='pointerup'){if(window.__avNext)window.__avNext();else{var cur=head.querySelector('img.on').dataset.mood;setMood(order[(order.indexOf(cur)+1)%order.length]);}}}
   stage.addEventListener('pointerup',end);stage.addEventListener('pointercancel',end);
   if(reduce){head.style.transform='translate(-50%,-50%)';return;}
   (function tick(t){var k=.04,d=.86;vy=(vy+(ty-ry)*k)*d;vx=(vx+(tx-rx)*k)*d;ry+=vy;rx+=vx;var bob=Math.sin((t||0)/1400)*4;
@@ -493,6 +527,8 @@
     if(!form || !btn) return;
     const t = (k)=> (window.I18N ? window.I18N.t(k) : k);
     const btnDefault = btn.innerHTML;
+    const gate = () => { btn.disabled = !form.checkValidity(); };
+    form.addEventListener('input', gate); form.addEventListener('reset', () => setTimeout(gate)); gate();
     function setStatus(kind, key){
       status.className = 'form-status show ' + (kind || '');
       status.textContent = t(key);
@@ -526,13 +562,29 @@
       } catch(err){
         setStatus('err', 'form.err');
       } finally {
-        btn.disabled = false;
         btn.innerHTML = btnDefault;
+        gate();
       }
     });
     form.querySelectorAll('input,textarea').forEach(el=>{
       el.addEventListener('input', ()=>{ const f = el.closest('.contact-field'); if(f) f.classList.remove('invalid'); });
     });
+  })();
+
+  // Mobile: nav some depois do hero; botão flutuante leva de volta ao topo
+  (function(){
+    const nav = document.querySelector('.nav'), top = document.getElementById('toTop');
+    if(!nav || !top) return;
+    const mq = matchMedia('(max-width:760px)');
+    const upd = () => {
+      const h1 = document.querySelector('[data-i18n="hero.title"]');
+      const lim = h1 ? Math.max(120, h1.getBoundingClientRect().top + scrollY - innerHeight * 0.4) : 140;
+      const away = mq.matches && scrollY > lim;
+      nav.classList.toggle('nav-away', away);
+      top.classList.toggle('show', away);
+    };
+    addEventListener('scroll', upd, {passive:true}); mq.addEventListener('change', upd); upd();
+    top.addEventListener('click', () => scrollTo({top:0, behavior:'smooth'}));
   })();
 
   // Som da interface — desligado por padrão; a escolha do visitante persiste

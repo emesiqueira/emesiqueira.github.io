@@ -126,7 +126,10 @@
     ticking = false;
     var y = scrollY;
     if (hero) {
-      var out = Math.min(1, Math.max(0, y / (hero.offsetHeight * 0.9)));
+      var mob = innerWidth <= 760, ctas = hero.querySelector('.g-hero-ctas');
+      var start = mob && ctas ? Math.max(0, ctas.offsetTop + hero.offsetTop - innerHeight * 0.18) : hero.offsetHeight * 0.25;
+      var span = hero.offsetHeight * (mob ? 0.35 : 0.65);
+      var out = Math.min(1, Math.max(0, (y - start) / span));
       body.style.setProperty('--hero-out', out.toFixed(3));
     }
     for (var i = 0; i < px.length; i++) {
